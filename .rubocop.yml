@@ -1,0 +1,41 @@
+Documentation:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/BlockLength:
+  Enabled: true
+  CountComments: false
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/ModuleLength:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/MethodLength:
+  Enabled: true
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Rails/TimeZone:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+
+Rails:
+  Enabled: true
