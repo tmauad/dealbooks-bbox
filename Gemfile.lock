@@ -38,6 +38,14 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    activevalidators (4.1.0)
+      activemodel (>= 3.0)
+      countries (>= 1.2, < 3.0)
+      credit_card_validations (~> 3.2)
+      date_validator
+      mail
+      phony (~> 2.0)
+      rake
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
@@ -60,10 +68,22 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
+    coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.0.5)
+    countries (2.1.3)
+      i18n_data (~> 0.8.0)
+      money (~> 6.9)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
     crass (1.0.3)
+    credit_card_validations (3.4.0)
+      activemodel (>= 3, <= 6)
+      activesupport (>= 3, <= 6)
+    date_validator (0.9.0)
+      activemodel
+      activesupport
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
@@ -72,11 +92,17 @@ GEM
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
+      railties (>= 3.0.0)
+    faker (1.8.7)
+      i18n (>= 0.7)
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.1)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.8.0)
     ice_nine (0.11.2)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -94,6 +120,8 @@ GEM
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.11.1)
+    money (6.10.1)
+      i18n (>= 0.6.4, < 1.0)
     multi_json (1.13.1)
     nio4r (2.2.0)
     nokogiri (1.8.1)
@@ -102,7 +130,16 @@ GEM
     parser (2.4.0.2)
       ast (~> 2.3)
     pg (0.21.0)
+    phony (2.16.3)
     powerpack (0.1.1)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-byebug (3.5.1)
+      byebug (~> 9.1)
+      pry (~> 0.10)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -184,6 +221,7 @@ GEM
       rubyzip (~> 1.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
+    sixarm_ruby_unaccent (1.2.0)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -199,6 +237,7 @@ GEM
     uglifier (4.1.3)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
+    unicode_utils (1.4.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -219,12 +258,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
+  activevalidators (~> 4.1)
   capybara (~> 2.13)
-  factory_bot
+  factory_bot_rails
+  faker
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
+  pry
+  pry-byebug
+  pry-rails
   puma (~> 3.7)
   rails (~> 5.1.4)
   reek
@@ -236,6 +279,9 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+
+RUBY VERSION
+   ruby 2.5.0p0
 
 BUNDLED WITH
    1.16.1
