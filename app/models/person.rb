@@ -17,7 +17,11 @@ class Person < ApplicationRecord
   validates :linkedin_url, url: true, allow_nil: true
 
   # Relations
-  has_many :person_companies
-  has_many :localizables, as: :localizable
-  has_many :investors, as: :investable
+  has_many :person_companies, dependent: :destroy
+  has_many(
+    :locations, as: :localizable, dependent: :destroy, inverse_of: :locations
+  )
+  has_many(
+    :investors, as: :investable, dependent: :destroy, inverse_of: :investors
+  )
 end

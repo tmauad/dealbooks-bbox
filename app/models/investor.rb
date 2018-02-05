@@ -34,8 +34,8 @@ class Investor < ApplicationRecord
 
   # Relations
   belongs_to :investable, polymorphic: true
-  has_many :investor_markets
-  has_many :deal_investors
+  has_many :investor_markets, dependent: :destroy
+  has_many :deal_investors, dependent: :destroy
 
   delegate(
     :name, :description, :permalink,

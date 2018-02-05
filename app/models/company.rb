@@ -24,8 +24,12 @@ class Company < ApplicationRecord
   validates :twitter_url, twitter: { format: :url }, allow_nil: true
 
   # Relations
-  has_many :deals
-  has_many :person_companies
-  has_many :localizables, as: :localizable
-  has_many :investors, as: :investable
+  has_many :deals, dependent: :destroy
+  has_many :person_companies, dependent: :destroy
+  has_many(
+    :locations, as: :localizable, dependent: :destroy, inverse_of: :locations
+  )
+  has_many(
+    :investors, as: :investable, dependent: :destroy, inverse_of: :investors
+  )
 end

@@ -48,9 +48,10 @@ class Deal < ApplicationRecord
   )
   validates :source_url, url: true, allow_nil: true
 
-  # TODO: Se houver alguma mudança no modelo, é preciso tornar o status para unverified
+  # TODO: Se houver alguma mudança no modelo, é preciso tornar o
+  # status para unverified
 
   # Relations
   belongs_to :company
-  has_many :deal_investors
+  has_many :deal_investors, dependent: :destroy
 end

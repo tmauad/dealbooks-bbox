@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Location < ApplicationRecord
-  # Validations
   validates :country, :region, :city, presence: true
+
+  has_many :localizables, dependent: :destroy
 end
