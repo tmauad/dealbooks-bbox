@@ -20,6 +20,9 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'factory_bot'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 3.6'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 3.1', require: false
