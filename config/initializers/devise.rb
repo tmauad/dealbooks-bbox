@@ -256,8 +256,7 @@ Devise.setup do |config|
   config.omniauth(
     :linkedin,
     ENV.fetch('DEALBOOK_LINKEDIN_API_KEY'),
-    ENV.fetch('DEALBOOK_LINKEDIN_API_SECRET'),
-    scope: 'user,public_repo'
+    ENV.fetch('DEALBOOK_LINKEDIN_API_SECRET')
   )
 
   # ==> Warden configuration
