@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DealInvestor < ApplicationRecord
-  validates :deal_id, :investor_id, presence: true
+  validates :deal, :investor, presence: true
 
   belongs_to :deal
   belongs_to :investor
