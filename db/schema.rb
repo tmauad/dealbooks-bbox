@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205212238) do
+ActiveRecord::Schema.define(version: 20180222160416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,22 @@ ActiveRecord::Schema.define(version: 20180205212238) do
     t.string "linkedin_url"
     t.string "facebook_url"
     t.string "twitter_url"
+    t.string "google_plus_url"
     t.string "status", default: "active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_companies_on_name"
     t.index ["permalink"], name: "index_companies_on_permalink"
     t.index ["status"], name: "index_companies_on_status"
+  end
+
+  create_table "company_markets", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "market_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_markets_on_company_id"
+    t.index ["market_id"], name: "index_company_markets_on_market_id"
   end
 
   create_table "deal_investors", force: :cascade do |t|
@@ -61,15 +71,6 @@ ActiveRecord::Schema.define(version: 20180205212238) do
     t.index ["company_id"], name: "index_deals_on_company_id"
     t.index ["round"], name: "index_deals_on_round"
     t.index ["status"], name: "index_deals_on_status"
-  end
-
-  create_table "investor_markets", force: :cascade do |t|
-    t.bigint "investor_id", null: false
-    t.bigint "market_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["investor_id"], name: "index_investor_markets_on_investor_id"
-    t.index ["market_id"], name: "index_investor_markets_on_market_id"
   end
 
   create_table "investors", force: :cascade do |t|
@@ -143,6 +144,29 @@ ActiveRecord::Schema.define(version: 20180205212238) do
     t.index ["company_id"], name: "index_person_companies_on_company_id"
     t.index ["job_title"], name: "index_person_companies_on_job_title"
     t.index ["person_id"], name: "index_person_companies_on_person_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "provider"
+    t.string "uid"
+    t.string "role", default: "user", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["provider"], name: "index_users_on_provider"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role"], name: "index_users_on_role"
+    t.index ["uid"], name: "index_users_on_uid"
   end
 
 end
