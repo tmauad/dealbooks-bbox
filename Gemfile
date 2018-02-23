@@ -22,6 +22,7 @@ gem 'omniauth-linkedin-oauth2'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
