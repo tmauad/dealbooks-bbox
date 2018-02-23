@@ -1,14 +1,49 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Dealbook</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
+    <head>
+	<meta charset="UTF-8">
+	<title>Dealbook</title>
+	<%= csrf_meta_tags %>
 
-  <body>
-    <%= yield %>
-  </body>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="stylesheet" href="/libs/Bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/libs/Swiper/swiper.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="/css/font-museosans.css">
+	<link rel="stylesheet" href="/libs/select-bootstrap/bootstrap-select.min.css">
+	<link rel="stylesheet" href="/css/main.css">
+    </head>
+
+    <body>
+	<%= yield %>
+
+	<script type="text/javascript" src="/libs/jQuery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="/libs/Bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/libs/Modernizr/modernizr-2.8.3.min.js"></script>
+	<script type="text/javascript" src="/libs/Swiper/swiper.min.js"></script>
+	<script type="text/javascript" src="/libs/select-bootstrap/bootstrap-select.min.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
+	<script>
+	 var swiperUpdates = new Swiper('.swiper-updates', {
+             pagination: '.swiper-pagination',
+             nextButton: '.arrows-controls .arrow-right',
+             prevButton: '.arrows-controls .arrow-left',
+             slidesPerView: 3,
+             spaceBetween: 30,
+             breakpoints: {
+		 991: {
+                     slidesPerView: 2,
+                     spaceBetween: 20
+		 },
+		 769: {
+                     slidesPerView: 1,
+                     spaceBetween: 15
+		 }
+             }
+	 })
+	</script>
+    </body>
+
 </html>
