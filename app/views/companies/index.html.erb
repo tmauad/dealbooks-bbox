@@ -38,7 +38,9 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6">
-                <p class="results">380 of 1000 results</p>
+                <p class="results">
+		    <%= page_entries_info @companies_paginated %>
+		</p>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <a href="#" class="btn-export">
