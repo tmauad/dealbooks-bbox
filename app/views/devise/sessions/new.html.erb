@@ -1,0 +1,130 @@
+<section class="s-signup">
+    <div class="s-left">
+        <img src="/img/logo.svg" class="logo" alt="">
+        <img src="/img/img-featured-signup.png" class="img-featured" alt="">
+        <div class="text">
+            <h2 class="subtitle">100% crowdsourced</h2>
+            <h1>The ultimate resource for<br>tech deals in Brazil</h1>
+            <ul>
+                <li>
+                    <img src="/img/cadeado.svg" alt="">
+                    <h2>Open<br>Source</h2>
+                </li>
+                <li>
+                    <img src="/img/maos.svg" alt="">
+                    <h2>Voluntary<br>Work </h2>
+                </li>
+                <li>
+                    <img src="/img/alvo.svg" alt="">
+                    <h2>Advanced<br>Search</h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="s-right">
+        <a href="/" class="btn-back">back to home <img src="/img/close.svg" alt=""></a>
+
+        <div class="container-signup">
+            <div class="top">
+                <span class="number">01</span>
+                <h1>Sign In</h1>
+            </div>
+
+	    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+		<%= link_to(omniauth_authorize_path(resource_name, :linkedin), class: 'button btn-linkedin') do %>
+		    <%= image_tag '/img/linkedin-white.png' %> Linkedin
+		<% end -%>
+                <span><a href="/">or Sign in with Email</a></span>
+
+		<%= devise_error_messages! %>
+
+                <div class="form-group">
+		    <%= f.text_field :email, autofocus: true, autocomplete: "Email", placeholder: 'Email' %>
+                </div>
+
+                <div class="form-group">
+		    <%= f.text_field :password, autocomplete: "off", placeholder: 'Password' %>
+                </div>
+
+		<div class="form-group">
+		    <input type="submit"
+			   style="width: 100%;
+				 background: #32d6cc;
+				 color: #fff;
+				 border: none;
+				 border-radius: 4px;
+				 line-height: 48px;
+				 font-size: 16px;
+				 outline: none;
+				 border: 2px solid #32d6cc;"
+			   value="Login">
+                </div>
+            <% end %>
+        </div>
+
+        <div class="container-add-your-company">
+            <div class="top">
+                <div class="prev-signup">
+                    <span class="number">01</span>
+                </div>
+                <div class="current-company">
+                    <span class="number">02</span>
+                    <h1>Add your Company</h1>
+                    <a href="#">do it later <img src="/img/seta-dir-blue.svg" alt=""></a>
+                </div>
+            </div>
+            <form action="">
+                <div class="form-group">
+                    <input type="text" placeholder="Name" class="input-name">
+                    <input type="text" placeholder="Date founded" class="input-date-founded">
+                </div>
+                <div class="form-group">
+                    <select name="" id="" class="select-employ">
+                        <option value="" disabled selected>Number of employees</option>
+                        <option value="">Option01</option>
+                        <option value="">Option02</option>
+                        <option value="">Option03</option>
+                    </select>
+                    <input type="text" placeholder="City" class="input-city">
+                    <input type="text" placeholder="State" class="input-state">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Country" class="input-country">
+                    <input type="text" placeholder="Site" class="input-site">
+                    <input type="text" placeholder="Phone" class="input-phone">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email:" class="input-email">
+                    <input type="text" placeholder="Industry" class="input-industry">
+                    <input type="text" placeholder="Tag" class="input-tag">
+                </div>
+                <div class="form-group">
+                    <div class="form-left">
+                        <textarea name="" id="" rows="6" class="input-description" placeholder="Description"></textarea>
+                    </div>
+                    <div class="form-right">
+                        <div class="input-group social">
+                            <span class="input-group-addon"><img src="/img/facebook-gray.svg" alt=""></span>
+                            <input type="text" class="form-control" placeholder="add facebook" aria-label="Username">
+                        </div>
+                        <div class="input-group social">
+                            <span class="input-group-addon"><img src="/img/twitter-gray.svg" alt=""></span>
+                            <input type="text" class="form-control" placeholder="add twitter" aria-label="Username">
+                        </div>
+                        <div class="input-group social">
+                            <span class="input-group-addon"><img src="/img/linkedin-gray.png" alt=""></span>
+                            <input type="text" class="form-control" placeholder="add linkedin" aria-label="Username">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="#" class="btn-prev-signup">
+                        <img src="/img/seta-esq-blue.svg" alt=""> back
+                    </a>
+                    <input type="submit" value="Continue">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
