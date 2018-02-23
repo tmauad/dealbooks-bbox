@@ -28,11 +28,7 @@ describe Investor do
 
   describe 'relations' do
     it { is_expected.to belong_to(:investable) }
-    it { is_expected.to have_many(:investor_markets) }
     it { is_expected.to have_many(:deal_investors) }
-  end
-
-  describe 'delegations' do
-    # TODO: Fazer os testes dos delegations
+    it { is_expected.to have_many(:deals).through(:deal_investors) }
   end
 end
