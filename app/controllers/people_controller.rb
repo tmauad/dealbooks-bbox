@@ -30,6 +30,24 @@ class PeopleController < ApplicationController
     end
   end
 
+  def edit
+    @companies = Company.all
+
+    @person = Person.find_by!(permalink: params[:id])
+  end
+
+  def update
+    @companies = Company.all
+
+    @person = Person.find_by!(permalink: params[:id])
+
+    if @person.update(person_params)
+      redirect_to people_path, notice: 'Successfully updated'
+    else
+      render :edit
+    end
+  end
+
   private
 
   PERSON_PARAMS = %i[
@@ -61,6 +79,8 @@ class PeopleController < ApplicationController
   def locations_attributes
     locations_attributes = alloweds[:locations_attributes]
 
+    return {} if locations_attributes.to_h.values.all?(&:empty?)
+
     {
       locations_attributes: [
         {
@@ -74,6 +94,8 @@ class PeopleController < ApplicationController
 
   def person_companies_attributes
     person_companies_attributes = alloweds[:person_companies_attributes]
+
+    return {} if person_companies_attributes.to_h.values.all?(&:empty?)
 
     {
       person_companies_attributes: [

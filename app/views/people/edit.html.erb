@@ -9,12 +9,12 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <h1 class="title">Create new People</h1>
+                <h1 class="title">Edit Person</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-5">
-		<%= form_for @person do |f| %>
+		<%= form_for @person, url: { action: 'update' , id: @person.permalink }, method: :put do |f| %>
 		    <%= render partial: 'form', locals: { f: f } %>
                 <% end %>
             </div>
