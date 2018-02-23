@@ -32,9 +32,7 @@ class Company < ApplicationRecord
     as: :localizable, dependent: :destroy, inverse_of: :localizables
   )
   has_many :locations, through: :localizables
-  has_many(
-    :investors, as: :investable, dependent: :destroy, inverse_of: :investors
-  )
+  has_one :investor, as: :investable, dependent: :destroy
   has_many :company_markets, dependent: :destroy
   has_many :markets, through: :company_markets
 
