@@ -6,9 +6,11 @@ class Person < ApplicationRecord
   # Validations
   validates :name, :permalink, :description, presence: true
   validates :permalink, slug: true, allow_nil: true
+  validates :permalink, uniqueness: true
   validates :born_date, date: { before: proc { Time.zone.today } }
   validates :gender, inclusion: { in: GENDERS }
   validates :email, email: true, allow_nil: true
+  validates :email, uniqueness: true
 
   validates :website_url, url: true, allow_nil: true
   validates :facebook_url, url: true, allow_nil: true
@@ -19,9 +21,18 @@ class Person < ApplicationRecord
   # Relations
   has_many :person_companies, dependent: :destroy
   has_many(
-    :locations, as: :localizable, dependent: :destroy, inverse_of: :locations
+    :localizables,
+    as: :localizable, dependent: :destroy, inverse_of: :localizables
   )
-  has_many(
-    :investors, as: :investable, dependent: :destroy, inverse_of: :investors
-  )
+  has_many :locations, through: :localizables
+  has_one :investor, as: :investable, dependent: :destroy
+
+  # Nested
+  accepts_nested_attributes_for :person_companies
+  accepts_nested_attributes_for :locations
+
+  # Hooks
+  before_validation do
+    self.permalink = name.parameterize if name.present?
+  end
 end

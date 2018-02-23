@@ -5,7 +5,6 @@ describe Person do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:permalink) }
     it { is_expected.to validate_presence_of(:description) }
 
     describe 'permalink' do
@@ -16,6 +15,7 @@ describe Person do
       end
 
       it 'is not a valid permalink, then returns invalid' do
+        person.name = nil
         person.permalink = 'wrong permalink'
 
         is_expected.not_to be_valid
@@ -170,5 +170,13 @@ describe Person do
         is_expected.to be_valid
       end
     end
+  end
+
+  describe 'relations' do
+    it { is_expected.to have_many(:person_companies).dependent(:destroy) }
+
+    it { is_expected.to have_many(:locations).through(:localizables) }
+
+    it { is_expected.to have_one(:investor) }
   end
 end
