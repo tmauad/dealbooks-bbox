@@ -43,12 +43,14 @@ class CompaniesController < ApplicationController
   def company_params
     @company_params ||=
       begin
+        locations_attributes = alloweds[:locations_attributes]
+
         allowed_company.merge(
           locations_attributes: [
             {
-              city: alloweds[:locations_attributes][:city].presence,
-              region: alloweds[:locations_attributes][:region].presence,
-              country: alloweds[:locations_attributes][:country].presence
+              city: locations_attributes[:city].presence,
+              region: locations_attributes[:region].presence,
+              country: locations_attributes[:country].presence
             }
           ]
         )
