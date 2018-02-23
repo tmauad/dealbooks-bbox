@@ -5,7 +5,6 @@ describe Company do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:permalink) }
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_presence_of(:status) }
 
@@ -17,6 +16,7 @@ describe Company do
       end
 
       it 'is not a valid permalink, then returns invalid' do
+        company.name = nil
         company.permalink = 'wrong permalink'
 
         is_expected.not_to be_valid
@@ -134,6 +134,26 @@ describe Company do
       end
     end
 
+    describe 'google_plus_url' do
+      it 'is a valid google_plus_url, then returns valid' do
+        company.google_plus_url = 'https://google_plus.com/dealbook'
+
+        is_expected.to be_valid
+      end
+
+      it 'is not a valid google_plus_url, then returns invalid' do
+        company.google_plus_url = 'google_plus@whatever.com'
+
+        is_expected.to_not be_valid
+      end
+
+      it 'could be nil' do
+        company.google_plus_url = nil
+
+        is_expected.to be_valid
+      end
+    end
+
     describe 'twitter_url' do
       it 'is a valid twitter_url, then returns valid' do
         company.twitter_url = 'https://twitter.com/dealbook'
@@ -153,5 +173,17 @@ describe Company do
         is_expected.to be_valid
       end
     end
+  end
+
+  describe 'relations' do
+    it { is_expected.to have_many(:deals).dependent(:destroy) }
+
+    it { is_expected.to have_many(:person_companies).dependent(:destroy) }
+
+    it { is_expected.to have_many(:locations).through(:localizables) }
+
+    it { is_expected.to have_many(:company_markets).dependent(:destroy) }
+
+    it { is_expected.to have_many(:markets).through(:company_markets) }
   end
 end
