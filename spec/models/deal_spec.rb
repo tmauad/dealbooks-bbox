@@ -108,4 +108,46 @@ describe Deal do
       end
     end
   end
+
+  describe 'relations' do
+    it { is_expected.to belong_to(:company) }
+    it { is_expected.to have_many(:deal_investors).dependent(:destroy) }
+    it { is_expected.to have_many(:investors).through(:deal_investors) }
+  end
+
+  describe '#amount' do
+    let(:deal) { build(:deal, amount_cents: 100_00) }
+
+    subject(:amount) { deal.amount }
+
+    it 'returns the value' do
+      is_expected.to eq(100.00)
+    end
+
+    context 'when theres no amount_cents' do
+      let(:deal) { build(:deal, amount_cents: nil) }
+
+      it 'returns nil' do
+        is_expected.to eq(nil)
+      end
+    end
+  end
+
+  describe '#pre_valuation' do
+    let(:deal) { build(:deal, pre_valuation_cents: 100_00) }
+
+    subject(:pre_valuation) { deal.pre_valuation }
+
+    it 'returns the value' do
+      is_expected.to eq(100.00)
+    end
+
+    context 'when theres no pre_valuation_cents' do
+      let(:deal) { build(:deal, pre_valuation_cents: nil) }
+
+      it 'returns nil' do
+        is_expected.to eq(nil)
+      end
+    end
+  end
 end

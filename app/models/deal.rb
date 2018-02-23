@@ -54,4 +54,20 @@ class Deal < ApplicationRecord
   # Relations
   belongs_to :company
   has_many :deal_investors, dependent: :destroy
+  has_many :investors, through: :deal_investors
+
+  # Nested
+  accepts_nested_attributes_for :deal_investors
+
+  def amount
+    return unless amount_cents
+
+    Float(amount_cents / 100)
+  end
+
+  def pre_valuation
+    return unless pre_valuation_cents
+
+    Float(pre_valuation_cents / 100)
+  end
 end
