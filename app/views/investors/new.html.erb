@@ -1,0 +1,88 @@
+<%= render partial: 'shared/header' %>
+
+<section class="form-create">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <a href="/investors" class="btn-back"><img src="/img/seta-esq-cinza.svg" alt=""> back</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <h1 class="title">Create new Investor</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-5">
+		<%= form_for @investor do |f| %>
+		    <% if @investor.errors.any? %>
+			<% @investor.errors.full_messages.each do |error| %>
+			    <div class="alert alert-danger" role="alert"><%= error %></div>
+			<% end %>
+		    <% end %>
+
+                    <div class="form-group">
+			<%= f.select(
+			    :investable_id,
+			    possible_new_investors,
+			    { prompt: 'Select a new investor' },
+			    { class: 'select-category' }
+			) %>
+			<small>Could be a person or company already registered in Dealbook</small>
+                    </div>
+
+		    <div class="form-group form-status">
+                        <span class="label-status">Status</span>
+                        <p class="radio-inline">
+			    <%= f.radio_button :status, 'active', id: 'radio-active', checked: true %>
+                            <label for="radio-active">active</label>
+                        </p>
+                        <p class="radio-inline">
+			    <%= f.radio_button :status, 'inactive', id: 'radio-inactive' %>
+                            <label for="radio-inactive">inactive</label>
+                        </p>
+                        <p class="radio-inline">
+			    <%= f.radio_button :status, 'acquired', id: 'radio-acquired' %>
+                            <label for="radio-acquired">acquired</label>
+                        </p>
+                        <p class="radio-inline">
+			    <%= f.radio_button :status, 'merged', id: 'radio-merged' %>
+                            <label for="radio-merged">merged</label>
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+			<%= f.select(
+			    :category,
+			    Investor::CATEGORIES.collect { |category| [category, category] },
+			    { prompt: 'Select a category' },
+			    { class: 'select-category-investor' }
+			) %>
+                    </div>
+
+		    <div class="form-group">
+			<%= f.select(
+			    :stage,
+			    Investor::STAGES.collect { |stage| [stage, stage] },
+			    { prompt: 'Select a stage' },
+			    { class: 'select-category-investor' }
+			) %>
+		    </div>
+
+                    <div class="form-group">
+			<%= f.submit 'Create Investor' %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="text-featured">
+                    <h1>Lorem ipsum dolor sit </h1>
+                    <p>Lorem ipsum dolor sit </p>
+                    <img src="/img/img-featured-create-investor.png" class="img-featured-create-deal" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= render partial: 'shared/footer' %>
