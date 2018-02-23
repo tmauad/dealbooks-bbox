@@ -17,8 +17,10 @@ require 'shoulda/matchers'.freeze
 RSpec.configure do |config|
   config.include(Shoulda::Matchers::ActiveModel)
   config.include(Shoulda::Matchers::ActiveRecord)
+  config.include(Devise::Test::ControllerHelpers, type: :controller)
+  config.include(Devise::Test::ControllerHelpers, type: :view)
 
-  config.include FactoryBot::Syntax::Methods
+  config.include(FactoryBot::Syntax::Methods)
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
