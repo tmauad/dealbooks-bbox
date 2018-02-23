@@ -1,10 +1,5 @@
 $(".container-add-your-company").hide();
 
-$(".btn-continue-signup").click(function(event) {
-    $(".container-signup").hide();
-    $(".container-add-your-company").show();
-});
-
 $(".btn-prev-signup").click(function(event) {
     $(".container-signup").show();
     $(".container-add-your-company").hide();
