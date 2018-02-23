@@ -4,8 +4,8 @@ describe PersonCompany do
   subject(:person_company) { build(:person_company) }
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:person_id) }
-    it { is_expected.to validate_presence_of(:company_id) }
+    it { is_expected.to validate_presence_of(:person) }
+    it { is_expected.to validate_presence_of(:company) }
     it { is_expected.to validate_presence_of(:job_title) }
 
     describe 'started_at' do
@@ -52,5 +52,31 @@ describe PersonCompany do
   describe 'relations' do
     it { is_expected.to belong_to(:person) }
     it { is_expected.to belong_to(:company) }
+  end
+
+  describe 'current?' do
+    let(:person_company) do
+      build(:person_company, started_at: 10.years.ago.to_date, ended_at: nil)
+    end
+
+    subject(:current?) { person_company.current? }
+
+    it 'returns true for the current job' do
+      is_expected.to eq(true)
+    end
+
+    context 'when is not the current job' do
+      let(:person_company) do
+        build(
+          :person_company,
+          started_at: 10.years.ago.to_date,
+          ended_at: 5.years.ago.to_date
+        )
+      end
+
+      it 'returns false' do
+        is_expected.to eq(false)
+      end
+    end
   end
 end
