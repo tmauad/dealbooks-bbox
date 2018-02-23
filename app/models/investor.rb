@@ -37,4 +37,6 @@ class Investor < ApplicationRecord
   has_many :deal_investors, dependent: :destroy
   has_many :deals, through: :deal_investors
   has_many :people, dependent: :destroy
+
+  delegate :name, to: :investable
 end
