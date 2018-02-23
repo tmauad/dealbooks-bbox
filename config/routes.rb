@@ -19,10 +19,10 @@ Rails.application.routes.draw do
     }
   )
 
-  resources :companies, only: %i[index new create show]
-  resources :deals, only: %i[index new create show]
-  resources :people, only: %i[index new create show]
-  resources :investors, only: %i[index new create show]
+  resources :companies, only: %i[index new create show edit update]
+  resources :deals, only: %i[index new create show edit update]
+  resources :people, only: %i[index new create show edit update]
+  resources :investors, only: %i[index new create show edit update]
 
   get :search, to: 'search#index'
   get :contact, to: 'contacts#index'
