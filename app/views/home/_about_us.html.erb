@@ -1,0 +1,54 @@
+<section class="s-about-us">
+    <div class="s-container">
+	<div class="text-about">
+            <div class="s-left">
+		<h1>About Us</h1>
+		<ul>
+                    <li>
+			<img src="/img/cadeado.svg" alt="">
+			<h2>Open<br>Source</h2>
+                    </li>
+                    <li>
+			<img src="/img/maos.svg" alt="">
+			<h2>Voluntary<br>Work </h2>
+                    </li>
+                    <li>
+			<img src="/img/alvo.svg" alt="">
+			<h2>Advanced<br>Search</h2>
+                    </li>
+		</ul>
+            </div>
+            <div class="s-right">
+		<p>The Brazil Startup Dealboook project started in 2011, when Diego Gomes (co-founder of Rock Content) created a public Google Spreadsheet where anybody could insert information about startup deals in Brazil. Since then, hundreds of investors, entrepreneurs and journalists across the globe have used the database to monitor deal flow or to quickly access historic data for the region.</p>
+		<p>I have been a contributor for <span>Dealbook</span> since inception and recently I felt our community had outgrown the original spreadsheet format. Therefore, as a personal project, I decided to build the <span>Dealbook 2.0</span> into an online application where we could add enhanced features beyond the limits of a spreadsheet, but hopefully retaining its simplicity. </p>
+            </div>
+	</div>
+	<div class="database">
+            <div class="title">
+		<h1>Browse the full Database</h1>
+		<img src="/img/seta-baixo.svg" alt="">
+            </div>
+            <div class="info-geral">
+		<ul>
+                    <li>
+			<span class="num"><%= @deals_count %></span>
+			<span class="caracter">Deals</span>
+                    </li>
+                    <li>
+			<span class="num"><%= @companies_count %></span>
+			<span class="caracter">Companies</span>
+                    </li>
+                    <li>
+			<span class="num"><%= @investors_count %></span>
+			<span class="caracter">Investors</span>
+                    </li>
+                    <li>
+			<span class="num"><%= @people_count %></span>
+			<span class="caracter">Collaboratos</span>
+                    </li>
+		</ul>
+            </div>
+            <span class="title-featured">It's completely free</span>
+	</div>
+    </div>
+</section>
