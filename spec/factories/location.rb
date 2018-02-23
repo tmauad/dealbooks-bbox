@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :location do
-    country 'Brazil'
-    region 'SP'
-    city 'São Paulo'
+    country { Faker::Address.country }
+    region { Faker::Address.state_abbr }
+    city { Faker::Address.city }
   end
 end

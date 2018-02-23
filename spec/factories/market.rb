@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :market do
-    name 'SaaS'
+    name { Faker::Company.type }
   end
 end

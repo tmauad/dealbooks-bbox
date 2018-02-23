@@ -6,7 +6,7 @@ FactoryBot.define do
     person
     company
 
-    job_title 'Founder'
+    job_title { Faker::Job.title }
 
     # Optionals
     started_at 10.years.ago.to_date

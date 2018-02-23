@@ -2,16 +2,16 @@
 
 FactoryBot.define do
   factory :person do
-    name 'Steve Jobs'
-    permalink 'steve-jobs'
-    description 'Awesome entrepreneuer'
+    name { Faker::Name.name }
+    permalink { name.parameterize }
+    description { Faker::Lorem.paragraph }
 
     # Optionals
-    born_date 60.years.ago.to_date
+    born_date { Faker::Date.backward }
     gender Person::MALE
     phone_number '55 11 99999-0077'
-    occupation 'CEO'
-    email 'steve.jobs@apple.com'
+    occupation { Faker::Name.title }
+    email { Faker::Internet.email }
     website_url 'http://www.apple.com'
     facebook_url 'https://www.facebook.com/apple'
     twitter_url 'https://twitter.com/apple'
