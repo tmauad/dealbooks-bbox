@@ -1,5 +1,13 @@
 # frozen_string_literal: true
 
+## USERS
+_user = FactoryBot.create(
+  :user,
+  email: 'dealbook@dealbook.co',
+  password: 'test1020',
+  password_confirmation: 'test1020'
+)
+
 ## COMPANIES
 company1 = FactoryBot.create(:company)
 location1 = FactoryBot.create(:location)
