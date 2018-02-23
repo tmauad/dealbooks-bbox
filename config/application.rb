@@ -17,5 +17,7 @@ module Dealbook
     # specified here.  Application configuration should go into files
     # in config/initializers -- all .rb files in that directory are
     # automatically loaded.
+
+    config.autoload_paths += [config.root.join('lib'), config.root.join('app')]
   end
 end
