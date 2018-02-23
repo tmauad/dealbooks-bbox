@@ -26,6 +26,20 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def edit
+    @company = Company.find_by!(permalink: params[:id])
+  end
+
+  def update
+    @company = Company.find_by!(permalink: params[:id])
+
+    if @company.update(company_params)
+      redirect_to companies_path, notice: 'Successfully updated'
+    else
+      render :edit
+    end
+  end
+
   private
 
   COMPANY_PARAMS = %i[
@@ -44,6 +58,8 @@ class CompaniesController < ApplicationController
     @company_params ||=
       begin
         locations_attributes = alloweds[:locations_attributes]
+
+        return allowed_company if locations_attributes.to_h.values.all?(&:empty?)
 
         allowed_company.merge(
           locations_attributes: [

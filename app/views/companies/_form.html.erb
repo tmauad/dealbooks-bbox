@@ -1,0 +1,69 @@
+<% if @company.errors.any? %>
+    <% @company.errors.full_messages.each do |error| %>
+	<div class="alert alert-danger" role="alert"><%= error %></div>
+    <% end %>
+<% end %>
+
+<div class="form-group">
+    <%= f.text_field :name, placeholder: 'Name' %>
+</div>
+<div class="form-group">
+    <%= f.select(
+	:employees_count,
+	[
+	    ['until 10 employees', 10],
+	    ['until 50 employees', 50],
+	    ['until 100 employees', 100],
+	    ['until 500 employees', 500],
+	    ['until 1000 employees', 1_000]
+	],
+	{},
+	{ class: 'select-employ' }
+    ) %>
+
+    <%= f.text_field :born_date, placeholder: 'Date founded', class: 'input-date' %>
+</div>
+<div class="form-group">
+    <%= f.fields_for :locations_attributes do |location_form| %>
+	<%= location_form.text_field :city, placeholder: 'City', class: 'input-city' %>
+	<%= location_form.text_field :region, placeholder: 'Region', class: 'input-state' %>
+    <% end %>
+</div>
+<div class="form-group">
+    <%= f.fields_for :locations_attributes do |location_form| %>
+	<%= location_form.text_field :country, placeholder: 'Country', class: 'input-phone' %>
+    <% end %>
+
+    <%= f.text_field :phone_number, placeholder: 'Phone number', class: 'input-tag' %>
+</div>
+<div class="form-group">
+    <%= f.text_field :website_url, placeholder: 'Site', class: 'input-site' %>
+</div>
+<div class="form-group">
+    <%= f.text_field :email, placeholder: 'E-mail', class: 'input-email' %>
+    <input type="text" placeholder="Industry [FALTA AQUI]" class="input-industry">
+</div>
+<div class="form-group">
+    <%= f.text_area :description, placeholder: 'Description', rows: 6 %>
+</div>
+<div class="form-group">
+    <div class="input-group social">
+        <span class="input-group-addon"><img src="/img/facebook-gray.svg" alt=""></span>
+	<%= f.text_field :facebook_url, placeholder: 'add facebook', class: 'form-control', 'aria-label' => 'Username' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group social">
+        <span class="input-group-addon"><img src="/img/twitter-gray.svg" alt=""></span>
+	<%= f.text_field :twitter_url, placeholder: 'add Twitter', class: 'form-control', 'aria-label' => 'Username' %>
+    </div>
+</div>
+<div class="form-group">
+    <div class="input-group social">
+        <span class="input-group-addon"><img src="/img/linkedin-gray.png" alt=""></span>
+	<%= f.text_field :linkedin_url, placeholder: 'add Linkedin', class: 'form-control', 'aria-label' => 'Username' %>
+    </div>
+</div>
+<div class="form-group">
+    <%= f.submit 'Send' %>
+</div>
