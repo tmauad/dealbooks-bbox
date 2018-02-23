@@ -1,0 +1,26 @@
+<div class="item investors">
+    <h1><img src="/img/companies.svg" alt=""> Companies</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Location</th>
+                    <td colspan="2">Deals</td>
+                </tr>
+            </thead>
+            <tbody>
+		<% @person.person_companies.each do |person_company| %>
+                    <tr>
+			<td><img src="/img/logo-company.png" alt=""><strong> <%= person_company.company.name %></strong></td>
+			<td class="status-active"><span class="circle"></span> <%= person_company.company.status %></td>
+			<td><%= person_company.company.locations.pluck(:region, :city, :country).join(', ') %></td>
+			<td>Raised Funds</td>
+			<td><a href="/companies/<%= person_company.company.permalink %>"><img src="/img/seta-dir.svg" alt=""></a></td>
+                    </tr>
+		<% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

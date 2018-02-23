@@ -1,0 +1,177 @@
+<%= render partial: 'shared/header' %>
+
+<section class="s-title-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-7">
+                <h1>People</h1>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-5">
+                <h2><%= @people.count %> People</h2>
+                <a href="/people/new">Create new</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="filter-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="container-filter">
+                    <h3><img src="/img/seta-baixo.svg" alt=""> Filter Peoples</h3>
+                    <div class="filter-result">
+                        <div class="filter-complete">
+                        </div>
+                        <button class="add-new-filter"><img src="/img/img-new-filter.svg" alt="" data-toggle="modal" data-target="#modalFilter"></button>
+                        <button class="btn-app-filter">Apply Filter</button>
+                    </div>
+                    <div class="filter-empty">
+                        <a href="#" class="btn-add-filter-modal" data-toggle="modal" data-target="#modalFilter"><img src="/img/add.svg" alt=""> Add filter people</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="s-table-results">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <p class="results">380 of 1000 results</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6">
+                <a href="#" class="btn-export">
+                    <img src="/img/export.svg" alt="">
+                    Export your results
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+		<%= render partial: 'shared/flash_messages' %>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name <img src="/img/filter.svg" alt=""></th>
+                                <th>Occupation <img src="/img/filter.svg" alt=""></th>
+                                <th>Local <img src="/img/filter.svg" alt=""></th>
+                                <th colspan="2">Company <img src="/img/filter.svg" alt=""></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+			    <% @people_paginated.each do |person| %>
+				<tr>
+                                    <td><img src="/img/photo-people.png" alt=""> <%= person.name %></td>
+                                    <td><%= person.occupation %></td>
+                                    <td><%= person.locations.pluck(:city, :region, :country).join(', ') %></td>
+                                    <td><img src="/img/logo-company-lg.png" alt=""><strong> <%= latest_company(person) %></strong></td>
+                                    <td><a href="/people/<%= person.permalink %>"><img src="/img/seta-dir.svg" alt=""></a></td>
+				</tr>
+			    <% end %>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next" class="next">
+                                <span aria-hidden="true">next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= render partial: 'shared/footer' %>
+
+<div id="modalFilter" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <h1 class="modal-title">Add Filter</h1>
+            <div class="modal-header">
+                <div class="control-breadcrumbs">
+                    <div class="controls">
+                        <button class="arrow-left disabled">
+                            <img src="/img/seta-esq-modal-filter.svg" alt="">
+                        </button>
+                        <button class="arrow-right disabled">
+                            <img src="/img/seta-dir-modal-filter.svg" alt="">
+                        </button>
+                    </div>
+                    <ul class="bread">
+                        <li class="one-category"></li>
+                        <li class="two-category"></li>
+                        <li class="three-category"></li>
+                        <li class="last-category"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="filter-geral">
+                    <div class="level-filter main-category">
+                        <ul>
+                            <li class="active">
+                                <a href="">
+                                    Companies
+                                    <i class="glyphicon glyphicon-chevron-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    Peoples
+                                    <i class="glyphicon glyphicon-chevron-right"></i>
+                                </a>
+                            </li>
+                            <li><a href="">Investors<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Deals<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="level-filter sub-category">
+                        <ul>
+                            <li><a href="">Basic Info<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Carrer<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Education<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Rank & Scores<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Option teste</a></li>
+                            <li><a href="">Option teste 2</a></li>
+                        </ul>
+                    </div>
+                    <div class="level-filter last-sub-category">
+                        <ul>
+                            <li><a href="">Full Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">First Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Last Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Location <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Gender <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Biography <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Number of News<br> Articles <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">option teste5</a></li>
+                        </ul>
+                    </div>
+                    <div class="level-filter last-level-filter">
+                        <ul>
+                            <li><a href="">option 1</a></li>
+                            <li><a href="">option 2</a></li>
+                            <li><a href="">option 3</a></li>
+                            <li><a href="">option 4</a></li>
+                            <li><a href="">option 5</a></li>
+                            <li><a href="">option 6</a></li>
+                            <li><a href="">option 7</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

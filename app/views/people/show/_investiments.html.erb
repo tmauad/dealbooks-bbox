@@ -1,0 +1,29 @@
+<div class="item">
+    <h1><img src="/img/investments.svg" alt=""> Investments</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Close date</th>
+                    <th>Company</th>
+                    <th>Deal type</th>
+                    <th>Round</th>
+                    <th>Amount</th>
+                    <th>Pre-money valution</th>
+                </tr>
+            </thead>
+            <tbody>
+		<% @deals.each do |deal| %>
+		    <tr>
+                        <td><strong><%= deal.close_date %></strong></td>
+                        <td><%= deal.company.name %></td>
+                        <td><%= deal.category %></td>
+                        <td><%= deal.round %></td>
+                        <td><%= deal.amount %></td>
+                        <td><%= deal.pre_valuation_cents %></td>
+		    </tr>
+		<% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

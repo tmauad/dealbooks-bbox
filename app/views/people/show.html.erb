@@ -1,0 +1,137 @@
+<%= render partial: 'shared/header' %>
+
+<section class="top-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <a href="/people" class="btn-back">
+                    <img src="/img/seta-esq-back.svg" alt="">
+                    back
+                </a>
+                <a href="/people/<%= @person.permalink %>/edit" class="btn-edit-page">
+                    <img src="/img/edit.svg" alt="">
+                    Edit page
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="s-detail-people">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="details">
+                    <div class="people">
+                        <div class="photo">
+                            <img src="/img/photo-people-03.jpg" class="img-responsive" alt="">
+                        </div>
+                        <div class="text">
+                            <h1><%= @person.name %></h1>
+                            <span><%= @person.occupation %></span>
+                        </div>
+                    </div>
+                    <div class="location">
+                        <img src="/img/location.svg" alt="">
+                        <span><%= @person.locations.pluck(:city, :region, :country).join(', ') %></span>
+                    </div>
+                    <div class="site">
+                        <img src="/img/site.svg" alt="">
+                        <a href="<%= @person.website_url %>" target="_blank"><%= @person.website_url %></a>
+                    </div>
+		    <% if @person.investor %>
+			<div class="categorie">
+                            <span>Categorie</span>
+                            <span class="name-categorie"><%= investor_category(@person) %></span>
+			</div>
+		    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="details-gerals">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3">
+                <div class="description">
+                    <h1>
+                        <img src="/img/person-details.svg" alt="">
+                        Person Details
+                    </h1>
+                    <p><%= @person.description %></p>
+                    <ul class="info-contact">
+                        <li>
+                            <p>
+                                <strong>Born:</strong> <%= @person.born_date %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Gender:</strong> <%= @person.gender %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Contact:</strong> <%= @person.phone_number %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>E-mail:</strong> <%= @person.email %>
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="social">
+                        <h1>Social medias</h1>
+                        <ul>
+			    <% if @person.facebook_url %>
+				<li>
+                                    <a href="<%= @person.facebook_url %>" target="_blank">
+					<img src="/img/facebook-colorido.svg" alt="">
+                                    </a>
+				</li>
+			    <% end %>
+
+			    <% if @person.twitter_url %>
+				<li>
+                                    <a href="<%= @person.twitter_url %>" target="_blank">
+					<img src="/img/twitter-colorido.svg" alt="">
+                                    </a>
+				</li>
+			    <% end %>
+
+			    <% if @person.google_plus_url %>
+				<li>
+				    <a href="<%= @person.google_plus_url %>" target="_blank">
+					<img src="/img/google-colorido.svg" alt="">
+				    </a>
+				</li>
+			    <% end %>
+
+			    <% if @person.linkedin_url %>
+				<li>
+				    <a href="<%= @person.linkedin_url %>" target="_blank">
+					<img src="/img/linkedin-colorido.svg" alt="">
+				    </a>
+				</li>
+			    <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9">
+                <div class="tables-info-company">
+		    <% if @deals.any? %>
+			<%= render partial: 'people/show/investiments' %>
+		    <% end %>
+
+                    <% if @person.person_companies.any? %>
+			<%= render partial: 'people/show/companies' %>
+		    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= render partial: 'shared/footer' %>
