@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :investor_market do
+  factory :company_market do
     # Relations
-    investor
+    company
     market
   end
 end
