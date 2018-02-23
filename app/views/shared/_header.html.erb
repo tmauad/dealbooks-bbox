@@ -1,0 +1,167 @@
+<header>
+    <div class="header-desktop">
+	<div class="container-logo">
+            <a href="/">
+		<img src="/img/logo.svg" class="img-logo img-responsive" alt="">
+            </a>
+	</div>
+	<div class="container-menu">
+            <div class="search">
+		<img src="/img/icone-lupa.svg" class="img-responsive btn-search" alt="">
+            </div>
+            <div class="container-search">
+		<form action="">
+                    <div class="form-group">
+			<input type="text" placeholder="Find companies, deals, peoples and investors ">
+			<button type="button" class="btn-close-search"><img src="/img/close-search.svg" alt=""></button>
+			<input type="submit" value="Search">
+                    </div>
+		</form>
+            </div>
+            <nav>
+		<ul>
+                    <li><a href="/companies">Companies</a></li>
+                    <li><a href="/deals">Deals</a></li>
+                    <li><a href="/people">People</a></li>
+                    <li><a href="/investors">Investors</a></li>
+                    <li><a href="#" class="btn-involved">Get Involved  <img src="/img/seta.svg" alt=""></a></li>
+                    <div class="popup-involved">
+			<a href="/embassador">Embassador Program</a>
+			<a href="/developer">Developer Program</a>
+			<a href="/about">About Us</a>
+                    </div>
+
+		    <% unless user_signed_in? %>
+			<li><a class="btn-signup">Sign In <img src="/img/seta.svg" alt=""></a></li>
+			<div class="popup-login">
+			    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				<%= link_to(omniauth_authorize_path(resource_name, :linkedin), class: 'login-with-linkedin') do %>
+				    <%= image_tag '/img/linkedin-resume.svg' %>
+				    Sign in with Linkedin
+				<% end -%>
+
+				<span class="span-or">or Sign in with Email</span>
+
+				<div class="form-group">
+				    <%= f.email_field :email, autofocus: true, placeholder: 'Email or Username', class: 'form-control' %>
+				</div>
+
+				<div class="form-group">
+				    <div class="input-group">
+					<%= f.text_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control' %>
+
+					<span class="input-group-btn">
+					    <%= f.button 'Login', class: 'btn btn-default' do %>
+						<img src="/img/seta-dir-white-login.svg" alt="">
+					    <% end %>
+					</span>
+				    </div>
+				</div>
+				<div class="text-information">
+				    <span>Need an account? <a href="/signup">Sign up</a></span>
+				    <span><a href="/password/new">Forgot your password?</a></span>
+				</div>
+			    <% end %>
+			</div>
+		    <% end %>
+		</ul>
+
+		<% if user_signed_in? %>
+		    <a href="/logout" type="button" class="btn-join">Logout</a>
+		<% else %>
+		    <a href="/signup" type="button" class="btn-join">Join us</a>
+		<% end %>
+
+		<button type="button" class="btn-idioma">
+                    <img src="/img/language.svg" alt="">
+                    <img src="/img/arrow-down.svg" class="arrow-down" alt="">
+		</button>
+		<div class="change-language">
+                    <a href="#">
+			<img src="/img/idioma-ptbr.svg" class="flag" alt="">
+                    </a>
+                    <a href="#">
+			<img src="/img/idioma-eua.svg" alt="" class="flag">
+                    </a>
+                    <a href="#">
+			<img src="/img/idioma-esp.svg" alt="" class="flag">
+                    </a>
+		</div>
+            </nav>
+	</div>
+    </div>
+    <div class="header-mobile">
+	<div class="container-logo">
+            <a href="/">
+		<img src="/img/logo.svg" alt="">
+            </a>
+	</div>
+	<div class="btns-menu">
+            <button class="btn-login">
+		<img src="/img/login.svg" class="btn-login-responsive img-responsive" class="img-responsive" alt="">
+            </button>
+            <a id="js-open-menu" class="menu-button">
+		<i class="menu-icon"></i>
+            </a>
+            <div class="popup-login">
+		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <button class="login-with-linkedin">
+			<img src="/img/linkedin-resume.svg" alt="">
+			<span>Sign in with Linkedin</span>
+                    </button>
+                    <span class="span-or">or Sign in with Email</span>
+                    <div class="form-group">
+			<%= f.email_field :email, autofocus: true, placeholder: 'Email or Username', class: 'form-control' %>
+                    </div>
+                    <div class="form-group">
+			<div class="input-group">
+			    <%= f.text_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control' %>
+
+			    <span class="input-group-btn">
+				<%= f.submit 'Login', class: 'btn btn-default' do %>
+				    <img src="/img/seta-dir-white-login.svg" alt="">
+				<% end %>
+                            </span>
+			</div>
+                    </div>
+                    <div class="text-information">
+			<span>Need an account? <a href="/signup">Sign up</a></span>
+			<span><a href="/password/new">Forgot your password?</a></span>
+                    </div>
+		<% end %>
+            </div>
+            <div class="menu-colapsado">
+		<ul>
+                    <li><a href="/companies">Companies</a></li>
+                    <li><a href="/deals">Deals</a></li>
+                    <li><a href="/people">People</a></li>
+                    <li><a href="/investors">Investors</a></li>
+                    <li><a href="" class="btn-involved">Get Involved <img src="/img/seta.svg" alt=""></a></li>
+                    <div class="popup-involved">
+			<a href="#">Ambassador Program</a>
+			<a href="#">Developer Program</a>
+			<a href="#">About Us</a>
+                    </div>
+                    <li><a href="sign-up" class="btn-join-now">Join Now</a></li>
+                    <div class="language">
+			<button type="button" class="btn-idioma">
+                            <img src="/img/language.svg" class="flag" alt="">
+                            <img src="/img/arrow-down.svg" class="arrow-down" alt="">
+			</button>
+			<div class="change-language">
+                            <a href="#">
+				<img src="/img/idioma-ptbr.svg" alt="" class="flag">
+                            </a>
+                            <a href="#">
+				<img src="/img/idioma-eua.svg" alt="" class="flag">
+                            </a>
+                            <a href="#">
+				<img src="/img/idioma-esp.svg" alt="" class="flag">
+                            </a>
+			</div>
+                    </div>
+		</ul>
+            </div>
+	</div>
+    </div>
+</header>
