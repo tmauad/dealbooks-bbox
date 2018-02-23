@@ -8,6 +8,6 @@ describe Market do
   end
 
   describe 'relations' do
-    it { is_expected.to have_many(:investor_markets) }
+    it { is_expected.to have_many(:company_markets) }
   end
 end

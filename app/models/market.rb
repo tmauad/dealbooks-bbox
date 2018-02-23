@@ -3,5 +3,5 @@
 class Market < ApplicationRecord
   validates :name, presence: true
 
-  has_many :investor_markets, dependent: :destroy
+  has_many :company_markets, dependent: :destroy
 end
