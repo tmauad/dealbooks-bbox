@@ -1,0 +1,24 @@
+<% if @investors.any? %>
+    <div class="item investors">
+	<h1><img src="/img/investors.svg" alt=""> Investors</h1>
+	<div class="table-responsive">
+            <table class="table">
+		<thead>
+                    <tr>
+			<th>Name Investor</th>
+			<th>Round</th>
+                    </tr>
+		</thead>
+		<tbody>
+		    <% @investors.each do |investor| %>
+			<tr>
+			    <td><img src="/img/logo-investors02.png" alt=""><strong> <%= investor.name %></strong></td>
+			    <td><%= investor.stage %></td>
+			    <td><a href="/investors/<%= investor.permalink %>">View profile</a></td>
+			</tr>
+		    <% end %>
+		</tbody>
+            </table>
+	</div>
+    </div>
+<% end %>

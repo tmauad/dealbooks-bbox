@@ -1,0 +1,83 @@
+<%= render partial: 'shared/header' %>
+
+<%= render partial: 'companies/show/header' %>
+
+<section class="details-gerals">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3">
+                <div class="description">
+                    <h1>
+                        <img src="/img/description.svg" alt="">
+                        Description
+                    </h1>
+                    <p><%= @company.description %></p>
+                    <ul class="info-contact">
+                        <li>
+                            <p>
+                                <strong>Founded:</strong> <%= @company.born_date %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>Contact:</strong> <%= @company.phone_number %>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong>E-mail:</strong> <%= @company.email %>
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="social">
+                        <h1>Social medias</h1>
+                        <ul>
+			    <% if @company.facebook_url %>
+				<li>
+                                    <a href="#" target="_blank">
+					<img src="/img/facebook-colorido.svg" alt="">
+                                    </a>
+				</li>
+			    <% end %>
+
+			    <% if @company.twitter_url %>
+				<li>
+                                    <a href="#" target="_blank">
+					<img src="/img/twitter-colorido.svg" alt="">
+                                    </a>
+				</li>
+			    <% end %>
+
+			    <% if @company.google_plus_url %>
+				<li>
+                                    <a href="#" target="_blank">
+					<img src="/img/google-colorido.svg" alt="">
+                                    </a>
+				</li>
+			    <% end %>
+
+			    <% if @company.linkedin_url %>
+				<li>
+                                    <a href="#" target="_blank">
+					<img src="/img/linkedin-colorido.svg" alt="">
+                                    </a>
+				</li>
+			    <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9">
+                <div class="tables-info-company">
+		    <%= render partial: 'companies/show/investments' %>
+
+		    <%= render partial: 'companies/show/investors' %>
+
+		    <%= render partial: 'companies/show/people' %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= render partial: 'shared/footer' %>

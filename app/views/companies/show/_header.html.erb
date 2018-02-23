@@ -1,0 +1,63 @@
+<section class="details-company">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <a href="/companies" class="btn-back">
+                    <img src="/img/seta-esq-branca.svg" alt="">
+                    back
+                </a>
+                <div class="company">
+                    <div class="name-company">
+                        <div class="logo">
+                            <img src="/img/logo-company-lg.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="text">
+                            <h1><%= @company.name %></h1>
+                            <span class="status status-active">
+                                <div class="circle"></div>
+                                <span><%= @company.status %></span>
+                            </span>
+                        </div>
+                    </div>
+		    <% if false %>
+                    <div class="top-contributors">
+                        <span>Top Contributors</span>
+                        <ul>
+                            <li><img src="/img/logo-netflix.png" alt=""></li>
+                            <li><img src="/img/logo-dell.png" alt=""></li>
+                            <li><img src="/img/logo-apple.png" alt=""></li>
+                            <li><img src="/img/logo-ficticio.png" alt=""></li>
+                            <li><img src="/img/logo-microsoft.png" alt=""></li>
+                            <li><img src="/img/logo-google.png" alt=""></li>
+                        </ul>
+                    </div>
+		    <% end %>
+                    <a href="/companies/<%= @company.permalink %>/edit" class="btn-edit"><img src="/img/edit.svg" alt="">Edit Page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="info-web-location">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <ul>
+                    <li>
+                        <strong>Site</strong>
+                        <a href="<%= @company.website_url %>" target="_blank"><%= @company.website_url %></a>
+                    </li>
+                    <li>
+                        <strong>Locations</strong>
+                        <span><%= @company.locations.pluck(:city, :region, :country).join(', ') %></span>
+                    </li>
+                    <li>
+                        <strong>Markets</strong>
+                        <span><%= @company.markets.map(&:name).uniq.join(', ') %></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
