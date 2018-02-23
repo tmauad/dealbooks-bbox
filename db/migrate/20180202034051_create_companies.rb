@@ -16,6 +16,7 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.string :linkedin_url
       t.string :facebook_url
       t.string :twitter_url
+      t.string :google_plus_url
 
       t.string :status, null: false, index: true, default: 'active'
 
