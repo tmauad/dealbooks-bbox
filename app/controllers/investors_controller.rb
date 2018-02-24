@@ -3,8 +3,12 @@
 class InvestorsController < ApplicationController
   def index
     @investors = Investor.all
-
     @investors_paginated = @investors.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   def show

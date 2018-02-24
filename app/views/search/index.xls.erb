@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+    <Worksheet ss:Name="Sheet1">
+	<Table>
+	    <Row>
+		<Cell><Data ss:Type="String"><%= t('search.index.column_name') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('search.index.column_status') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('search.index.column_location') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('search.index.column_deals') %></Data></Cell>
+	    </Row>
+	    <% @results.each do |result| %>
+		<Row>
+		    <Cell><Data ss:Type="String"><%= result.name %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= result.try(:status) %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= result.locations.pluck(:city, :region, :country).join(', ') %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= result.try(:investor).try(:category) %></Data></Cell>
+		</Row>
+	    <% end %>
+	</Table>
+    </Worksheet>
+</Workbook>

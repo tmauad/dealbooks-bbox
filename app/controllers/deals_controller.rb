@@ -4,6 +4,11 @@ class DealsController < ApplicationController
   def index
     @deals = Deal.all.order(:close_date)
     @deals_paginated = @deals.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   def new
@@ -44,9 +49,9 @@ class DealsController < ApplicationController
     @deal_params ||=
       begin
         allowed_deal.merge(
-          deal_investors_attributes: [
-            { investor_id: alloweds[:deal_investors_attributes][:investor_id] }
-          ]
+        deal_investors_attributes: [
+          { investor_id: alloweds[:deal_investors_attributes][:investor_id] }
+        ]
         )
       end
   end

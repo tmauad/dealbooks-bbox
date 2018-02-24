@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+    <Worksheet ss:Name="Sheet1">
+	<Table>
+	    <Row>
+		<Cell><Data ss:Type="String"><%= t('companies.index.column_company') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('companies.index.column_status') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('companies.index.column_location') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('companies.index.column_deals') %></Data></Cell>
+	    </Row>
+	    <% @companies.each do |company| %>
+		<Row>
+		    <Cell><Data ss:Type="String"><%= company.name %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= company.status %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= company.locations.pluck(:city, :region, :country).join(', ') %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= company.deals.map(&:category).uniq.join(', ') %></Data></Cell>
+		</Row>
+	    <% end %>
+	</Table>
+    </Worksheet>
+</Workbook>

@@ -4,6 +4,11 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all.order(:name)
     @companies_paginated = @companies.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   def show

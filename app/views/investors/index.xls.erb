@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+    <Worksheet ss:Name="Sheet1">
+	<Table>
+	    <Row>
+		<Cell><Data ss:Type="String"><%= t('investor.index.column_name') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('investor.index.column_number_of_investments') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('investor.index.column_number_of_exited_companies') %></Data></Cell>
+		<Cell><Data ss:Type="String"><%= t('investor.index.column_location') %></Data></Cell>
+	    </Row>
+	    <% @investors.each do |investor| %>
+		<Row>
+		    <Cell><Data ss:Type="String"><%= investor.investable.name %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= investor.deals.count %></Data></Cell>
+		    <Cell><Data ss:Type="String"></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= investor.investable.locations.pluck(:city, :region, :country).join(', ') %></Data></Cell>
+		</Row>
+	    <% end %>
+	</Table>
+    </Worksheet>
+</Workbook>
