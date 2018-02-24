@@ -101,5 +101,13 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'dealbook.co' }
+  config.action_mailer.default_url_options = {
+    host: ENV.fetch('DEALBOOK_DOMAIN')
+  }
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: ENV.fetch('DEALBOOK_MAILGUN_API_KEY'),
+    domain: ENV.fetch('DEALBOOK_DOMAIN')
+  }
 end
