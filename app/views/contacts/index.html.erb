@@ -4,24 +4,28 @@
         <img src="/img/img-featured-contact.png" class="img-featured" alt="">
     </div>
     <div class="s-right">
-        <a href="/" class="btn-back">back to home <img src="/img/close.svg" alt=""></a>
+        <a href="/" class="btn-back"><%= t('contact.index.back') %> <img src="/img/close.svg" alt=""></a>
         <div class="form">
             <h1>Talk Us</h1>
-            <form action="">
+            <form action="/contact" method="post">
+		<%= render partial: 'shared/flash_messages' %>
+
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
                 <div class="form-group">
-                    <label for="">Name</label>
-                    <input type="text" class="form-control">
+                    <label for=""><%= t('contact.index.name') %></label>
+                    <input type="text" name="contact[name]" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">E-mail</label>
-                    <input type="email" class="form-control">
+                    <label for=""><%= t('contact.index.email') %></label>
+                    <input type="email" name="contact[email]" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Message</label>
-                    <textarea cols="30" rows="5" class="form-control"></textarea>
+                    <label for=""><%= t('contact.index.message') %></label>
+                    <textarea cols="30" name="contact[message]" rows="5" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Send Message">
+                    <input type="submit" value="<%= t('contact.index.send') %>">
                 </div>
             </form>
         </div>
@@ -31,6 +35,6 @@
                 <li><a href="#" target="_blank"><img src="/img/twitter-azul.svg" alt=""></a></li>
             </ul>
         </div>
-        <span class="email">contact@dealbook.co</span>
+        <span class="email"><%= t('contact.index.email_to_contact') %></span>
     </div>
 </section>

@@ -203,3 +203,12 @@ en:
       column_status: 'Status'
       column_location: 'Location'
       column_deals: 'Deals'
+  contact:
+    index:
+      back: 'back to home'
+      talk_us: 'Talk us'
+      name: 'Name'
+      email: 'Email'
+      message: 'Message'
+      send: 'Send message'
+      email_to_contact: 'contact@dealbook.co'

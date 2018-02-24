@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   get :search, to: 'search#index'
   get :contact, to: 'contacts#index'
+  post :contact, to: 'contacts#create'
   get :developer, to: 'developers#index'
   get :embassador, to: 'embassador#index'
   get :faq, to: 'faq#index'
