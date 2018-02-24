@@ -19,6 +19,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise', '~> 4.4'
 gem 'omniauth-linkedin-oauth2'
+gem 'mailgun-ruby', '~>1.1.6'
 
 group :development, :test do
   gem 'capybara', '~> 2.13'
