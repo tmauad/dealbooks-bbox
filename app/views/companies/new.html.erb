@@ -4,25 +4,25 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <a href="/companies" class="btn-back"><img src="/img/seta-esq-cinza.svg" alt=""> back</a>
+                <a href="/companies" class="btn-back"><img src="/img/seta-esq-cinza.svg" alt=""> <%= t('companies.form.back') %></a>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <h1 class="title">Create new Company</h1>
+                <h1 class="title"><%= t('companies.form.create_company') %></h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-5">
-		<%= form_for(@company) do |f| %>
+		<%= form_for @company do |f| %>
 		    <%= render partial: 'form', locals: { f: f } %>
 		<% end %>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-7">
                 <div class="text-featured">
-                    <h1>Lorem ipsum dolor sit </h1>
-                    <p>Lorem ipsum dolor sit </p>
+                    <h1><%= t('companies.form.featured_title') %></h1>
+                    <p><%= t('companies.form.featured_subtitle') %></p>
                     <img src="/img/img-featured-company.png" alt="">
                 </div>
             </div>

@@ -1,0 +1,12 @@
+pt-br:
+  header:
+    companies: 'Empresas'
+    deals: 'Negócios'
+    people: 'Pessoas'
+    investor: 'Investidores'
+    get_involved: 'Participe'
+    embassador_program: 'Programa embaixador'
+    developer_program: 'Programa de desenvolvedores'
+    about_us: 'Sobre nós'
+    join_us: 'Cadastre-se'
+    logout: 'Sair'

@@ -10,23 +10,23 @@
                     <a href="index.html">
 			<img src="/img/logo.svg" class="logo-footer" alt="">
                     </a>
-                    <p>Dealbook is an open source project released  under the MIT license. Dealbook's content is licensedunder a Creative Commons  Attribution-ShareAlike 3.0 Unported License.</p>
+                    <p><%= t('footer.explanation') %></p>
 		</div>
 		<div class="col-xs-12 col-sm-12 col-md-offset-0 col-md-5 col-lg-offset-1 col-lg-4">
                     <nav>
 			<ul>
-                            <li><a href="/companies">Companies</a></li>
-                            <li><a href="/deals">Deals</a></li>
-                            <li><a href="/people">People</a></li>
-                            <li><a href="/investors">Investors</a></li>
-                            <li><a href="">Help</a></li>
+                            <li><a href="/companies"><%= t('footer.companies') %></a></li>
+                            <li><a href="/deals"><%= t('footer.deals') %></a></li>
+                            <li><a href="/people"><%= t('footer.people') %></a></li>
+                            <li><a href="/investors"><%= t('footer.investors') %></a></li>
+                            <li><a href=""><%= t('footer.help') %></a></li>
 			</ul>
 			<ul>
-                            <li><a href="/contact">Contact</a></li>
-                            <li><a href="">Dealbook API</a></li>
-                            <li><a href="">Roadmap</a></li>
-                            <li><a href="/developer">Github</a></li>
-                            <li><a href="/faq">FAQ</a></li>
+                            <li><a href="/contact"><%= t('footer.contact') %></a></li>
+                            <li><a href=""><%= t('footer.dealbook_api') %></a></li>
+                            <li><a href=""><%= t('footer.roadmap') %></a></li>
+                            <li><a href="/developer"><%= t('footer.github') %></a></li>
+                            <li><a href="/faq"><%= t('footer.faq') %></a></li>
 			</ul>
                     </nav>
 		</div>
@@ -45,7 +45,7 @@
                             </li>
 			</ul>
                     </div>
-                    <a href="/signup" class="btn-join">join now</a>
+                    <a href="/signup" class="btn-join"><%= t('footer.join_now') %></a>
 		</div>
             </div>
 	</div>

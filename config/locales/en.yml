@@ -1,33 +1,196 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  header:
+    search_box: 'Find companies, investors and people'
+    companies: 'Companies'
+    deals: 'Deals'
+    people: 'People'
+    investor: 'Investors'
+    get_involved: 'Get involved'
+    embassador_program: 'Embassador program'
+    developer_program: 'Developer program'
+    about_us: 'About us'
+    join_us: 'Join us'
+    logout: 'Logout'
+    sign_in: 'Sign in'
+    sign_in_with_linkedin: 'Sign in with Linkedin'
+    or_sign_in_with_email: 'or Sign in with Email'
+    need_account_html: 'Need an account? <a href="/signup">Sign up</a>'
+    forgot_password: 'Forgot your password?'
+  footer:
+    explanation: "Dealbook is an open source project released  under the MIT license. Dealbook's content is licensed under a Creative Commons  Attribution-ShareAlike 3.0 Unported License."
+    companies: 'Companies'
+    deals: 'Deals'
+    people: 'People'
+    investors: 'Investors'
+    help: 'Help'
+    contact: 'Contact'
+    dealbook_api: 'Dealbook API'
+    roadmap: 'Roadmap'
+    github: 'Github'
+    faq: 'FAQ'
+    join_now: 'join now'
+  home:
+    section_featured:
+      title: '100% crowdsourced'
+      subtitle_html: 'The ultimate resource for<br>tech deals in Brazil'
+      subtitle2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.'
+      button: 'join now'
+    about_us:
+      about_us: 'About Us'
+      opensource_html: 'Open<br>Source'
+      voluntary_work_html: 'Voluntary<br>Work'
+      advanced_search_html: 'Advanced<br>Search'
+      description_html: '<p>The Brazil Startup Dealboook project started in 2011, when Diego Gomes (co-founder of Rock Content) created a public Google Spreadsheet where anybody could insert information about startup deals in Brazil. Since then, hundreds of investors, entrepreneurs and journalists across the globe have used the database to monitor deal flow or to quickly access historic data for the region.</p> <p>I have been a contributor for <span>Dealbook</span> since inception and recently I felt our community had outgrown the original spreadsheet format. Therefore, as a personal project, I decided to build the <span>Dealbook 2.0</span> into an online application where we could add enhanced features beyond the limits of a spreadsheet, but hopefully retaining its simplicity. </p>'
+      browse: 'Browse the full Database'
+      deals_count: 'Deals'
+      companies_count: 'Companies'
+      investors_count: 'Investors'
+      people_count: 'People'
+      free: "It's completely free"
+    reasons:
+      text_receive: 'Receive all the latest'
+      more_reasons: 'More reasons to Sign up'
+      latest_news: 'Receive all the latest updates on tech venture capital and M&A deals.'
+      become_part: 'Become part of a vibrant open-source community that brings more transparency and liquidity to the market.'
+      completely_free: "It's completely free."
+      join_now: 'join now'
+    updates:
+      get_all_recent_news: 'Get all the recent Updates'
+      view_all: 'view all'
+  companies:
+    index:
+      companies: 'Companies'
+      new: 'Create new'
+      filter: 'Filter companies'
+      apply_filter: 'Apply filter'
+      add_filter: 'Add filter company'
+      export: 'Export your results'
+      column_company: 'Company'
+      column_status: 'Status'
+      column_location: 'Location'
+      column_deals: 'Deals'
+    form:
+      back: 'back'
+      create_company: ''
+      featured_title: 'Lorem ipsum dolor sit'
+      featured_subtitle: 'Lorem ipsum dolor sit'
+      name: 'Name'
+      date_founded: 'Date founded'
+      city: 'City'
+      region: 'Region'
+      country: 'Country'
+      phone_number: 'Phone Number'
+      website_url: 'Site'
+      email: 'Email'
+      description: 'Description'
+      add_facebook: 'add facebook'
+      add_twitter: 'add twitter'
+      add_linkedin: 'add linkedin'
+      send: 'Send'
+  deals:
+    index:
+      deals: 'Deals'
+      new: 'Create Deal'
+      filter: 'Filter deals'
+      apply_filter: 'Apply filter'
+      add_filter: 'Add filter deal'
+      export: 'Export your results'
+      column_company: 'Company'
+      column_close_date: 'Close date'
+      column_deal_type: 'Deal type'
+      column_investors: 'Investors'
+      column_amount: 'Amount'
+    form:
+      new: 'Create new deal'
+      back: 'back'
+      featured_title: 'Lorem ipsum dolor sit'
+      featured_subtitle: 'Lorem ipsum dolor sit'
+      select_company: 'Select a company'
+      close_date: 'Close date'
+      select_category: 'Select a category'
+      select_investor: 'Select an investor'
+      select_round: 'Select a round'
+      select_currency: 'Select currency'
+      total_amount: 'Pre valuation'
+      source_url: 'Source URL - http://www.example.com'
+      send: 'Send'
+  people:
+    index:
+      people: 'People'
+      new: 'Create new'
+      export: 'Export your results'
+      column_name: 'Name'
+      column_occupation: 'Occupation'
+      column_local: 'Local'
+      column_company: 'Company'
+    form:
+      new: 'Create new people'
+      edit: 'Edit person'
+      back: 'back'
+      featured_title: 'Lorem ipsum dolor sit'
+      featured_subtitle: 'Lorem ipsum dolor sit'
+      name: 'Name'
+      occupation: 'Occupation'
+      select_company: 'Select a company'
+      description: 'Bio:  Ex: Adriana Cisneros is CEO and Vice Chairman of Cisneros, one of the largest privately held media, entertainment, digital media, real estate, tourism resorts and consumer products organizations in the world.'
+      city: 'City'
+      region: 'Region'
+      country: 'Country'
+      social_profile: 'Social profile'
+      add_facebook: 'add facebook'
+      add_twitter: 'add twitter'
+      add_linkedin: 'add linkedin'
+      born_date: 'Birthday'
+      gender: 'Gender'
+      male: 'male'
+      female: 'female'
+      phone_number: 'Phone +00 (00) 00000 - 0000'
+      email: 'Email'
+      send: 'Send'
+  investor:
+    index:
+      investors: 'Investors'
+      new: 'Create new'
+      filter: 'Filter investors'
+      apply: 'Apply filter'
+      add_filter: 'Add filter investor'
+      export: 'Export your results'
+      column_name: 'Investor name'
+      column_number_of_investments: 'Number of investments'
+      column_number_of_exited_companies: 'Number of exited companies'
+      column_location: 'Location'
+    form:
+      back: 'back'
+      new: 'Create new investor'
+      featured_title: 'Lorem ipsum dolor sit'
+      featured_subtitle: 'Lorem ipsum dolor sit'
+      select_investor: 'Select a new investor'
+      select_investor_explain: 'Could be a person or company already registered in Dealbook'
+      status: 'Status'
+      active: 'active'
+      inactive: 'inactive'
+      acquired: 'acquired'
+      merged: 'merged'
+      select_category: 'Select a category'
+      select_stage: 'Select a stage'
+      send: 'Send'
+  embassador:
+    index:
+      title: 'Ambassador Program:'
+      subtitle: 'Become a Dealbook Embassador'
+      explanation: 'Help your local startup community. It is simple, easy and takes only a couple minutes per week create a database of startups, people and deals in your country. All we ask for is to help us curate and track deals and develop your local ecossystem. You will become a mover and shaker for your local startup community.'
+      start_now: 'start now'
+      current_embassadors: 'Current Embassadors'
+      got_questions_html: 'Got questions? <a href="#">Check out our FAQ!</a>'
+      embassador: 'Bill Gates'
+      embassador_occupation: 'CEO and Founder at Microsoft'
+      embassador_location: 'Seattle, Washington,USA'
+  developer:
+    index:
+      title: 'Developer Program'
+      subtitle: 'Become a Dealbook Developer!'
+      explanation: 'Contribute to your local startup community and improve your development portfolio. Dealbook is an open source mantained by passionate developers all over the world. Our data is free and open.'
+      view_on_github: 'VIEW ON GITHUB!'
+      current_developer: 'Current Developer'
+      got_questions_html: 'Got questions? <a href="#">Check out our FAQ!</a>'
+      show_more: 'show more'

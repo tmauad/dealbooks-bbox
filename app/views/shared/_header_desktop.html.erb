@@ -1,0 +1,91 @@
+<div class="header-desktop">
+    <div class="container-logo">
+        <a href="/">
+	    <img src="/img/logo.svg" class="img-logo img-responsive" alt="">
+        </a>
+    </div>
+    <div class="container-menu">
+        <div class="search">
+	    <img src="/img/icone-lupa.svg" class="img-responsive btn-search" alt="">
+        </div>
+        <div class="container-search">
+	    <form action="/search">
+                <div class="form-group">
+		    <input type="text" name="query" placeholder="<%= t('header.search_box') %>">
+		    <button type="button" class="btn-close-search"><img src="/img/close-search.svg" alt=""></button>
+		    <input type="submit" value="Search">
+                </div>
+	    </form>
+        </div>
+        <nav>
+	    <ul>
+                <li><a href="/companies"><%= t('header.companies') %></a></li>
+                <li><a href="/deals"><%= t('header.deals') %></a></li>
+                <li><a href="/people"><%= t('header.people') %></a></li>
+                <li><a href="/investors"><%= t('header.investors') %></a></li>
+                <li><a href="#" class="btn-involved"><%= t('header.get_involved') %> <img src="/img/seta.svg" alt=""></a></li>
+                <div class="popup-involved">
+		    <a href="/embassador"><%= t('header.embassador_program') %></a>
+		    <a href="/developer"><%= t('header.developer_program') %></a>
+		    <a href="/about"><%= t('header.about_us') %></a>
+                </div>
+
+		<% unless user_signed_in? %>
+		    <li><a class="btn-signup"><%= t('header.sign_in') %> <img src="/img/seta.svg" alt=""></a></li>
+		    <div class="popup-login">
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+			    <%= link_to(omniauth_authorize_path(resource_name, :linkedin), class: 'login-with-linkedin') do %>
+				<%= image_tag '/img/linkedin-resume.svg' %>
+				<%= t('header.sign_in_with_linkedin') %>
+			    <% end -%>
+
+			    <span class="span-or"><%= t('header.or_sign_in_with_email') %></span>
+
+			    <div class="form-group">
+				<%= f.email_field :email, autofocus: true, placeholder: 'Email or Username', class: 'form-control' %>
+			    </div>
+
+			    <div class="form-group">
+				<div class="input-group">
+				    <%= f.text_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control' %>
+
+				    <span class="input-group-btn">
+					<%= f.button 'Login', class: 'btn btn-default' do %>
+					    <img src="/img/seta-dir-white-login.svg" alt="">
+					<% end %>
+				    </span>
+				</div>
+			    </div>
+			    <div class="text-information">
+				<span><%= t('header.need_account_html') %></span>
+				<span><a href="/password/new"><%= t('header.forgot_password') %></a></span>
+			    </div>
+			<% end %>
+		    </div>
+		<% end %>
+	    </ul>
+
+	    <% if user_signed_in? %>
+		<a href="/logout" type="button" class="btn-join"><%= t('header.logout') %></a>
+	    <% else %>
+		<a href="/signup" type="button" class="btn-join"><%= t('header.join_us') %></a>
+	    <% end %>
+
+	    <button type="button" class="btn-idioma">
+                <img src="/img/language.svg" alt="">
+                <img src="/img/arrow-down.svg" class="arrow-down" alt="">
+	    </button>
+	    <div class="change-language">
+                <a href="/?language=pt-br">
+		    <img src="/img/idioma-ptbr.svg" class="flag" alt="">
+                </a>
+                <a href="/?language=en">
+		    <img src="/img/idioma-eua.svg" alt="" class="flag">
+                </a>
+                <a href="/?language=es">
+		    <img src="/img/idioma-esp.svg" alt="" class="flag">
+                </a>
+	    </div>
+        </nav>
+    </div>
+</div>

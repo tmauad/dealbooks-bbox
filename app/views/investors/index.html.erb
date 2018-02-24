@@ -4,35 +4,18 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-7">
-                <h1>Investors</h1>
+                <h1><%= t('investor.index.investors') %></h1>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-5">
-                <h2><%= @investors.count %> Investors</h2>
-                <a href="/investors/new">Create new</a>
+                <h2><%= @investors.count %> <%= t('investor.index.investors') %></h2>
+                <a href="/investors/new"><%= t('investor.index.new') %></a>
             </div>
         </div>
     </div>
 </section>
-<section class="filter-block">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="container-filter">
-                    <h3><img src="/img/seta-baixo.svg" alt=""> Filter Investors</h3>
-                    <div class="filter-result">
-                        <div class="filter-complete">
-                        </div>
-                        <button class="add-new-filter"><img src="/img/img-new-filter.svg" alt="" data-toggle="modal" data-target="#modalFilter"></button>
-                        <button class="btn-app-filter">Apply Filter</button>
-                    </div>
-                    <div class="filter-empty">
-                        <a href="#" class="btn-add-filter-modal" data-toggle="modal" data-target="#modalFilter"><img src="/img/add.svg" alt=""> Add filter investor</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+<%= render partial: 'filters' %>
+
 <section class="s-table-results">
     <div class="container">
         <div class="row">
@@ -44,7 +27,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <a href="#" class="btn-export">
                     <img src="/img/export.svg" alt="">
-                    Export your results
+                    <%= t('investor.index.export') %>
                 </a>
             </div>
         </div>
@@ -56,10 +39,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Investor Name <img src="/img/filter.svg" alt=""></th>
-                                <th>Number of Investiments <img src="/img/filter.svg" alt=""></th>
-                                <th>Number of Exited Companies <img src="/img/filter.svg" alt=""></th>
-                                <th colspan="2">Location <img src="/img/filter.svg" alt=""></th>
+                                <th><%= t('investor.index.column_name') %> <img src="/img/filter.svg" alt=""></th>
+                                <th><%= t('investor.index.column_number_of_investments') %> <img src="/img/filter.svg" alt=""></th>
+                                <th><%= t('investor.index.column_number_of_exited_companies') %> <img src="/img/filter.svg" alt=""></th>
+                                <th colspan="2"><%= t('investor.index.column_location') %> <img src="/img/filter.svg" alt=""></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,85 +66,3 @@
 </section>
 
 <%= render partial: 'shared/footer' %>
-
-<div id="modalFilter" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <h1 class="modal-title">Add Filter</h1>
-            <div class="modal-header">
-                <div class="control-breadcrumbs">
-                    <div class="controls">
-                        <button class="arrow-left disabled">
-                            <img src="/img/seta-esq-modal-filter.svg" alt="">
-                        </button>
-                        <button class="arrow-right disabled">
-                            <img src="/img/seta-dir-modal-filter.svg" alt="">
-                        </button>
-                    </div>
-                    <ul class="bread">
-                        <li class="one-category"></li>
-                        <li class="two-category"></li>
-                        <li class="three-category"></li>
-                        <li class="last-category"></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="filter-geral">
-                    <div class="level-filter main-category">
-                        <ul>
-                            <li class="active">
-                                <a href="">
-                                    Companies
-                                    <i class="glyphicon glyphicon-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    Peoples
-                                    <i class="glyphicon glyphicon-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li><a href="">Investors<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Deals<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="level-filter sub-category">
-                        <ul>
-                            <li><a href="">Basic Info<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Carrer<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Education<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Rank & Scores<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Option teste</a></li>
-                            <li><a href="">Option teste 2</a></li>
-                        </ul>
-                    </div>
-                    <div class="level-filter last-sub-category">
-                        <ul>
-                            <li><a href="">Full Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">First Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Last Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Location <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Gender <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Biography <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Number of News<br> Articles <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">option teste5</a></li>
-                        </ul>
-                    </div>
-                    <div class="level-filter last-level-filter">
-                        <ul>
-                            <li><a href="">option 1</a></li>
-                            <li><a href="">option 2</a></li>
-                            <li><a href="">option 3</a></li>
-                            <li><a href="">option 4</a></li>
-                            <li><a href="">option 5</a></li>
-                            <li><a href="">option 6</a></li>
-                            <li><a href="">option 7</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

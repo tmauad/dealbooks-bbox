@@ -1,0 +1,63 @@
+<% if @deal.errors.any? %>
+    <% @deal.errors.full_messages.each do |error| %>
+	<div class="alert alert-danger" role="alert"><%= error %></div>
+    <% end %>
+<% end %>
+
+<div class="form-group">
+    <%= f.select(
+	:company_id,
+	@companies.collect { |c| [c.name, c.id] },
+	{ prompt: t('deals.form.select_company') },
+	{ class: 'select-category' }
+    ) %>
+</div>
+<div class="form-group">
+    <div class="input-group date-close">
+        <span class="input-group-addon"><img src="/img/calendar.svg" alt=""></span>
+	<%= f.text_field :close_date, placeholder: t('deals.form.close_date'), class: 'form-control', 'aria-label' => 'Username' %>
+    </div>
+    <%= f.select(
+	:category,
+	Deal::CATEGORIES.collect { |category| [category, category] },
+	{ prompt: t('deals.form.select_category') },
+	{ class: 'select-category' }
+    ) %>
+</div>
+<div class="form-group">
+    <%= f.fields_for :deal_investors_attributes do |investor_form| %>
+	<%= investor_form.select(
+	    :investor_id,
+	    @investors.collect { |c| [c.investable.name, c.id] },
+	    { prompt: t('deals.form.select_investor') },
+	    { class: 'select-category' }
+	) %>
+    <% end %>
+</div>
+<div class="form-group">
+    <%= f.select(
+	:round,
+	Deal::ROUNDS.collect { |round| [round, round] },
+	{ prompt: t('deals.form.select_round') },
+	{ class: 'select-round' }
+    ) %>
+
+    <%= f.select(
+	:amount_currency,
+	Deal::CURRENCIES.collect { |currency| [currency, currency] },
+	{ prompt: t('deals.form.select_currency') },
+	{ class: 'select-currency' }
+    ) %>
+</div>
+<div class="form-group">
+    <%= f.text_field :amount_cents, placeholder: t('deals.form.total_amount'), class: 'input-total-amount' %>
+</div>
+<div class="form-group">
+    <%= f.text_field :pre_valuation_cents, placeholder: t('deals.form.close_date'), class: 'input-money' %>
+</div>
+<div class="form-group">
+    <%= f.text_area :source_url, placeholder: t('deals.form.source_url'), rows: 6 %>
+</div>
+<div class="form-group">
+    <%= f.submit t('deals.form.send') %>
+</div>

@@ -4,36 +4,18 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-7">
-                <h1>Companies</h1>
+                <h1><%= t('companies.index.companies') %></h1>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-5">
-                <h2><%= @companies.count %> companies</h2>
-                <a href="/companies/new">Create new</a>
+                <h2><%= @companies.count %> <%= t('companies.index.companies').downcase %></h2>
+                <a href="/companies/new"><%= t('companies.index.new') %></a>
             </div>
         </div>
     </div>
 </section>
-<section class="filter-block">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="container-filter">
-                    <h3><img src="/img/seta-baixo.svg" alt=""> Filter Companies</h3>
-                    <div class="filter-result">
-                        <div class="filter-complete">
 
-                        </div>
-                        <button class="add-new-filter"><img src="/img/img-new-filter.svg" alt="" data-toggle="modal" data-target="#modalFilter"></button>
-                        <button class="btn-app-filter">Apply Filter</button>
-                    </div>
-                    <div class="filter-empty">
-                        <a href="#" class="btn-add-filter-modal" data-toggle="modal" data-target="#modalFilter"><img src="/img/add.svg" alt=""> Add filter company</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<%= render partial: 'filters' %>
+
 <section class="s-table-results">
     <div class="container">
         <div class="row">
@@ -45,7 +27,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <a href="#" class="btn-export">
                     <img src="/img/export.svg" alt="">
-                    Export your results
+                    <%= t('companies.index.export') %>
                 </a>
             </div>
         </div>
@@ -57,22 +39,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>
-                                    Company
-                                    <img src="/img/filter.svg" alt="">
-                                </th>
-                                <th>
-                                    Status
-                                    <img src="/img/filter.svg" alt="">
-                                </th>
-                                <th>
-                                    Location
-                                    <img src="/img/filter.svg" alt="">
-                                </th>
-                                <th colspan="2">
-                                    Deals
-                                    <img src="/img/filter.svg" alt="">
-                                </th>
+                                <th> <%= t('companies.index.column_company') %> <img src="/img/filter.svg" alt=""> </th>
+                                <th> <%= t('companies.index.column_status') %> <img src="/img/filter.svg" alt=""> </th>
+                                <th> <%= t('companies.index.column_location') %> <img src="/img/filter.svg" alt=""> </th>
+                                <th colspan="2"> <%= t('companies.index.column_deals') %> <img src="/img/filter.svg" alt=""> </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,5 +66,3 @@
 </section>
 
 <%= render partial: 'shared/footer' %>
-
-<%= render partial: 'index_filter' %>

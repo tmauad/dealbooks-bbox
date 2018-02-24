@@ -1,0 +1,57 @@
+<% if @investor.errors.any? %>
+    <% @investor.errors.full_messages.each do |error| %>
+	<div class="alert alert-danger" role="alert"><%= error %></div>
+    <% end %>
+<% end %>
+
+<div class="form-group">
+    <%= f.select(
+	:investable_id,
+	possible_new_investors,
+	{ prompt: t('investor.form.select_investor') },
+	{ class: 'select-category' }
+    ) %>
+    <small><%= t('investor.form.select_investor_explain') %></small>
+</div>
+
+<div class="form-group form-status">
+    <span class="label-status"><%= t('investor.form.status') %></span>
+    <p class="radio-inline">
+	<%= f.radio_button :status, 'active', id: 'radio-active', checked: true %>
+        <label for="radio-active"><%= t('investor.form.active') %></label>
+    </p>
+    <p class="radio-inline">
+	<%= f.radio_button :status, 'inactive', id: 'radio-inactive' %>
+        <label for="radio-inactive"><%= t('investor.form.inactive') %></label>
+    </p>
+    <p class="radio-inline">
+	<%= f.radio_button :status, 'acquired', id: 'radio-acquired' %>
+        <label for="radio-acquired"><%= t('investor.form.acquired') %></label>
+    </p>
+    <p class="radio-inline">
+	<%= f.radio_button :status, 'merged', id: 'radio-merged' %>
+        <label for="radio-merged"><%= t('investor.form.merged') %></label>
+    </p>
+</div>
+
+<div class="form-group">
+    <%= f.select(
+	:category,
+	Investor::CATEGORIES.collect { |category| [category, category] },
+	{ prompt: t('investor.form.select_category') },
+	{ class: 'select-category-investor' }
+    ) %>
+</div>
+
+<div class="form-group">
+    <%= f.select(
+	:stage,
+	Investor::STAGES.collect { |stage| [stage, stage] },
+	{ prompt: t('investor.form.select_stage') },
+	{ class: 'select-category-investor' }
+    ) %>
+</div>
+
+<div class="form-group">
+    <%= f.submit t('investor.form.send') %>
+</div>

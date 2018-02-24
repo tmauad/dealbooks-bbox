@@ -1,4 +1,24 @@
-<!-- Modal -->
+<section class="filter-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="container-filter">
+                    <h3><img src="/img/seta-baixo.svg" alt=""> <%= t('investor.index.filter') %></h3>
+                    <div class="filter-result">
+                        <div class="filter-complete">
+                        </div>
+                        <button class="add-new-filter"><img src="/img/img-new-filter.svg" alt="" data-toggle="modal" data-target="#modalFilter"></button>
+                        <button class="btn-app-filter"><%= t('investor.index.apply') %></button>
+                    </div>
+                    <div class="filter-empty">
+                        <a href="#" class="btn-add-filter-modal" data-toggle="modal" data-target="#modalFilter"><img src="/img/add.svg" alt=""> <%= t('investor.index.add_filter') %></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div id="modalFilter" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
