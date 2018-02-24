@@ -8,7 +8,7 @@
                     <img src="/img/seta-esq-back.svg" alt="">
                     back
                 </a>
-                <h1>Search Result for “Deal Br”</h1>
+                <h1>Search Result for “<%= params[:query] %>”</h1>
             </div>
         </div>
     </div>
@@ -51,48 +51,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><img src="/img/logo-investors.png" alt=""> Altivia Ventures</td>
-                                <td class="status-active"><span class="circulo"></span> Active</td>
-                                <td>São Paulo, SP, Brazil</td>
-                                <td>Raised Funds</td>
-                                <td><a href="profile-company.html"><img src="/img/seta-dir.svg" alt=""></a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="/img/logo-investors.png" alt=""> Altivia Ventures</td>
-                                <td class="status-active"><span class="circulo"></span> Active</td>
-                                <td>São Paulo, SP, Brazil</td>
-                                <td>Raised Funds</td>
-                                <td><a href="profile-company.html"><img src="/img/seta-dir.svg" alt=""></a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="/img/logo-investors.png" alt=""> Altivia Ventures</td>
-                                <td class="status-active"><span class="circulo"></span> Active</td>
-                                <td>São Paulo, SP, Brazil</td>
-                                <td>Raised Funds</td>
-                                <td><a href="profile-company.html"><img src="/img/seta-dir.svg" alt=""></a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="/img/logo-investors.png" alt=""> Altivia Ventures</td>
-                                <td class="status-active"><span class="circulo"></span> Active</td>
-                                <td>São Paulo, SP, Brazil</td>
-                                <td>Raised Funds</td>
-                                <td><a href="profile-company.html"><img src="/img/seta-dir.svg" alt=""></a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="/img/logo-investors.png" alt=""> Altivia Ventures</td>
-                                <td class="status-active"><span class="circulo"></span> Active</td>
-                                <td>São Paulo, SP, Brazil</td>
-                                <td>Raised Funds</td>
-                                <td><a href="profile-company.html"><img src="/img/seta-dir.svg" alt=""></a></td>
-                            </tr>
-                            <tr>
-                                <td><img src="/img/logo-investors.png" alt=""> Altivia Ventures</td>
-                                <td class="status-active"><span class="circulo"></span> Active</td>
-                                <td>São Paulo, SP, Brazil</td>
-                                <td>Raised Funds</td>
-                                <td><a href="profile-company.html"><img src="/img/seta-dir.svg" alt=""></a></td>
-                            </tr>
+			    <% @results.each do |result| %>
+				<tr>
+                                    <td><img src="/img/logo-investors.png" alt=""> <%= result.name %></td>
+                                    <td class="status-active"><span class="circulo"></span> <%= result.try(:status) %></td>
+                                    <td><%= result.locations.pluck(:city, :region, :country).join(', ') %></td>
+                                    <td><%= result.try(:investor).try(:category) %></td>
+                                    <td><a href="<%= "/#{result.class.to_s.downcase.pluralize}/#{result.permalink}" %>"><img src="/img/seta-dir.svg" alt=""></a></td>
+				</tr>
+			    <% end %>
                         </tbody>
                     </table>
                 </div>

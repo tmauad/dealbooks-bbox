@@ -2,12 +2,16 @@
 
 describe SearchController do
   describe '#index' do
-    subject(:index) { get :index }
+    let(:query) { { query: 'ab' } }
+    subject(:index) { get :index, params: query }
 
-    it 'returns 200' do
+    it 'returns the query result' do
+      person = create(:person, name: 'Abc')
+      company = create(:company, name: 'aBcD')
+
       index
 
-      expect(response.status).to eq(200)
+      expect(assigns(:results)).to eq([person, company])
     end
   end
 end
