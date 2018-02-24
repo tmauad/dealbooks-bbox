@@ -194,3 +194,12 @@ en:
       current_developer: 'Current Developer'
       got_questions_html: 'Got questions? <a href="#">Check out our FAQ!</a>'
       show_more: 'show more'
+  search:
+    index:
+      back: 'back'
+      search_result: 'Search result for'
+      export: 'Export your results'
+      column_name: 'Name'
+      column_status: 'Status'
+      column_location: 'Location'
+      column_deals: 'Deals'
