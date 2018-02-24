@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: %i[index show]
+  before_action :set_language
 
   protect_from_forgery with: :exception
 
@@ -17,5 +18,9 @@ class ApplicationController < ActionController::Base
   # Overide devise
   def resource
     @resource ||= User.new
+  end
+
+  def set_language
+    I18n.locale = params[:language] if params[:language]
   end
 end
