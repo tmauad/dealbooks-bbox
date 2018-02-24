@@ -8,6 +8,7 @@ class User < ApplicationRecord
   ].freeze
 
   validates :email, :role, presence: true
+  validates :email, uniqueness: true
   validates :role, inclusion: { in: ROLES }
 
   # Include default devise modules. Others available are:
