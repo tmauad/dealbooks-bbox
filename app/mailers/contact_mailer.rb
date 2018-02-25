@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ContactMailer < ActionMailer::Base
+class ContactMailer < ApplicationMailer
   def index(params)
     @name = params.fetch(:name)
     @email = params.fetch(:email)
