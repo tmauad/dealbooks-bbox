@@ -108,6 +108,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: ENV.fetch('DEALBOOK_MAILGUN_API_KEY'),
-    domain: ENV.fetch('DEALBOOK_DOMAIN')
+    domain: ENV.fetch('DEALBOOK_MAILGUN_DOMAIN')
   }
 end
