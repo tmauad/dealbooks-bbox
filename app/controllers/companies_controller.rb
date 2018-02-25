@@ -2,7 +2,8 @@
 
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all.order(:name)
+    @companies = SearchService.new(Company, filter_params).fetch.order(:name)
+
     @companies_paginated = @companies.page(params[:page])
 
     respond_to do |format|
@@ -59,6 +60,12 @@ class CompaniesController < ApplicationController
     )
   end
 
+  def filter_params
+    return {} unless params[:filter]
+
+    params.require(:filter).permit(:fields, :operators, :values)
+  end
+
   def company_params
     @company_params ||=
       begin
@@ -67,13 +74,13 @@ class CompaniesController < ApplicationController
         return allowed_company if locations_attributes.to_h.values.all?(&:empty?)
 
         allowed_company.merge(
-          locations_attributes: [
-            {
-              city: locations_attributes[:city].presence,
-              region: locations_attributes[:region].presence,
-              country: locations_attributes[:country].presence
-            }
-          ]
+        locations_attributes: [
+          {
+            city: locations_attributes[:city].presence,
+            region: locations_attributes[:region].presence,
+            country: locations_attributes[:country].presence
+          }
+        ]
         )
       end
   end
