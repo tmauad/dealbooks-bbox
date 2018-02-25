@@ -6,54 +6,16 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
 		<!-- Slides -->
-		<div class="swiper-slide">
-                    <a href="#">
-			<div class="box-update">
-                            <p>Worthix raised USD 1,700,000 in Seed funding from 500 Startups, Valor Capital Group, Bebit</p>
-                            <span class="date">Updated on 06 Sep 17</span>
-			</div>
-                    </a>
-		</div>
-		<div class="swiper-slide">
-                    <a href="#">
-			<div class="box-update">
-                            <p>Worthix raised USD 1,700,000 in Seed funding from 500 Startups, Valor Capital Group, Bebit</p>
-                            <span class="date">Updated on 06 Sep 17</span>
-			</div>
-                    </a>
-		</div>
-		<div class="swiper-slide">
-                    <a href="#">
-			<div class="box-update">
-                            <p>Worthix raised USD 1,700,000 in Seed funding from 500 Startups, Valor Capital Group, Bebit</p>
-                            <span class="date">Updated on 06 Sep 17</span>
-			</div>
-                    </a>
-		</div>
-		<div class="swiper-slide">
-                    <a href="#">
-			<div class="box-update">
-                            <p>Worthix raised USD 1,700,000 in Seed funding from 500 Startups, Valor Capital Group, Bebit</p>
-                            <span class="date">Updated on 06 Sep 17</span>
-			</div>
-                    </a>
-		</div>
-		<div class="swiper-slide">
-                    <a href="#">
-			<div class="box-update">
-                            <p>Worthix raised USD 1,700,000 in Seed funding from 500 Startups, Valor Capital Group, Bebit</p>
-                            <span class="date">Updated on 06 Sep 17</span>
-			</div>
-                    </a>
-		</div>
-		<div class="swiper-slide">
-                    <a href="#">
-			<div class="box-update">
-                            <p>Worthix raised USD 1,700,000 in Seed funding from 500 Startups, Valor Capital Group, Bebit</p>
-                            <span class="date">Updated on 06 Sep 17</span>
-			</div>
-                    </a>
-		</div>
+		<% latest_updates.each do |deal| %>
+		    <div class="swiper-slide">
+			<a>
+			    <div class="box-update">
+				<p><%= deal[:description] %></p>
+				<span class="date"><%= deal[:date] %></span>
+			    </div>
+			</a>
+		    </div>
+		<% end %>
             </div>
 	</div>
     </div>
