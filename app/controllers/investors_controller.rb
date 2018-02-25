@@ -2,13 +2,9 @@
 
 class InvestorsController < ApplicationController
   def index
-    @investors = Investor.all
-    @investors_paginated = @investors.page(params[:page])
+    @investors = SearchService.new(Investor, filter_params).fetch
 
-    respond_to do |format|
-      format.html
-      format.xls
-    end
+    @investors_paginated = @investors.page(params[:page])
   end
 
   def show
@@ -33,6 +29,12 @@ class InvestorsController < ApplicationController
   end
 
   private
+
+  def filter_params
+    return {} unless params[:filter]
+
+    params.require(:filter).permit(:fields, :operators, :values)
+  end
 
   def alloweds
     params.require(:investor).permit(:investable_id, :status, :category, :stage)

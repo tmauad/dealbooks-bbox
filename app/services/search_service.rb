@@ -10,10 +10,12 @@ class SearchService
     return base_query if filter_params.blank?
 
     fields.each_with_index.map do |field, index|
-      @base_query = base_query.where(
+      query = [
         "#{field_of_query(field)} #{operator_of_query(index)} ?",
-        value_of_query(field, index)
-      )
+        value_of_query(index)
+      ]
+
+      @base_query = base_query.where(*query)
     end
 
     base_query
@@ -32,8 +34,8 @@ class SearchService
   private_constant :SIGNALS
 
   # Adds or no the %% SQL operator in the query
-  def value_of_query(field, index)
-    return "%#{values[index]}%" if field == 'alike'
+  def value_of_query(index)
+    return "%#{values[index]}%" if operators[index] == 'alike'
 
     values[index]
   end

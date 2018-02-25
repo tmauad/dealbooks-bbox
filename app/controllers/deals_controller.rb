@@ -3,12 +3,8 @@
 class DealsController < ApplicationController
   def index
     @deals = SearchService.new(Deal, filter_params).fetch.order(:close_date)
-    @deals_paginated = @deals.page(params[:page])
 
-    respond_to do |format|
-      format.html
-      format.xls
-    end
+    @deals_paginated = @deals.page(params[:page])
   end
 
   def new

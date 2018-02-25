@@ -5,11 +5,6 @@ class CompaniesController < ApplicationController
     @companies = SearchService.new(Company, filter_params).fetch.order(:name)
 
     @companies_paginated = @companies.page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.xls
-    end
   end
 
   def show

@@ -2,7 +2,8 @@
 
 class PeopleController < ApplicationController
   def index
-    @people = Person.all
+    @people = SearchService.new(Person, filter_params).fetch
+
     @people_paginated = @people.page(params[:page])
   end
 
@@ -68,6 +69,12 @@ class PeopleController < ApplicationController
     PERSON_PARAMS.inject({}) do |acc, param|
       acc.merge(param => alloweds[param].presence)
     end
+  end
+
+  def filter_params
+    return {} unless params[:filter]
+
+    params.require(:filter).permit(:fields, :operators, :values)
   end
 
   def person_params
