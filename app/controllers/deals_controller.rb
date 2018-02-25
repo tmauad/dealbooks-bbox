@@ -2,7 +2,7 @@
 
 class DealsController < ApplicationController
   def index
-    @deals = Deal.all.order(:close_date)
+    @deals = SearchService.new(Deal, filter_params).fetch.order(:close_date)
     @deals_paginated = @deals.page(params[:page])
 
     respond_to do |format|
@@ -38,6 +38,12 @@ class DealsController < ApplicationController
     amount_cents pre_valuation_cents source_url
   ].freeze
   private_constant :DEAL_PARAMS
+
+  def filter_params
+    return {} unless params[:filter]
+
+    params.require(:filter).permit(:fields, :operators, :values)
+  end
 
   def alloweds
     params.require(:deal).permit(

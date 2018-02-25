@@ -5,8 +5,13 @@
                 <div class="container-filter">
                     <h3><img src="/img/seta-baixo.svg" alt=""> <%= t('deals.index.filter') %></h3>
                     <div class="filter-result">
-                        <div class="filter-complete">
-                        </div>
+			<form id="filter-form" action="/deals">
+			    <input type="hidden" name="filter[fields]" id="filter-fields" />
+			    <input type="hidden" name="filter[operators]" id="filter-operators" />
+			    <input type="hidden" name="filter[values]" id="filter-values" />
+			</form>
+
+                        <div class="filter-complete"></div>
                         <button class="add-new-filter"><img src="/img/img-new-filter.svg" alt="" data-toggle="modal" data-target="#modalFilter"></button>
                         <button class="btn-app-filter"><%= t('deals.index.apply_filter') %></button>
                     </div>
@@ -46,53 +51,33 @@
                 <div class="filter-geral">
                     <div class="level-filter main-category">
                         <ul>
-                            <li class="active">
-                                <a href="">
-                                    Companies
-                                    <i class="glyphicon glyphicon-chevron-right"></i>
-                                </a>
-                            </li>
                             <li>
-                                <a href="">
-                                    Peoples
-                                    <i class="glyphicon glyphicon-chevron-right"></i>
-                                </a>
-                            </li>
-                            <li><a href="">Investors<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Deals<i class="glyphicon glyphicon-chevron-right"></i></a></li>
+				<a href="">
+				    Deals<i class="glyphicon glyphicon-chevron-right"></i>
+				</a>
+			    </li>
                         </ul>
                     </div>
                     <div class="level-filter sub-category">
                         <ul>
                             <li><a href="">Basic Info<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Carrer<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Education<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Rank & Scores<i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Option teste</a></li>
-                            <li><a href="">Option teste 2</a></li>
                         </ul>
                     </div>
                     <div class="level-filter last-sub-category">
                         <ul>
-                            <li><a href="">Full Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">First Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Last Name <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Location <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Gender <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Biography <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">Number of News<br> Articles <i class="glyphicon glyphicon-chevron-right"></i></a></li>
-                            <li><a href="">option teste5</a></li>
+                            <li><a href="">Status <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Category <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Round <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Amount cents <i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li><a href="">Source URL <i class="glyphicon glyphicon-chevron-right"></i></a></li>
                         </ul>
                     </div>
                     <div class="level-filter last-level-filter">
                         <ul>
-                            <li><a href="">option 1</a></li>
-                            <li><a href="">option 2</a></li>
-                            <li><a href="">option 3</a></li>
-                            <li><a href="">option 4</a></li>
-                            <li><a href="">option 5</a></li>
-                            <li><a href="">option 6</a></li>
-                            <li><a href="">option 7</a></li>
+                            <li><a href="">equal</a></li>
+                            <li><a href="">alike</a></li>
+                            <li><a href="">greater than</a></li>
+                            <li><a href="">less than</a></li>
                         </ul>
                     </div>
                 </div>

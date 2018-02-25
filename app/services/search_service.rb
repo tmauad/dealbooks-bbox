@@ -33,11 +33,9 @@ class SearchService
 
   # Adds or no the %% SQL operator in the query
   def value_of_query(field, index)
-    if field == 'equal'
-      values[index]
-    else
-      "%#{values[index]}%"
-    end
+    return "%#{values[index]}%" if field == 'alike'
+
+    values[index]
   end
 
   def field_of_query(field)
@@ -47,7 +45,7 @@ class SearchService
   # Translate the signal to an equivalent in SQL
   def operator_of_query(index)
     SIGNALS.fetch(
-      operators[index].downcase.to_sym # Eg.: :equal
+      operators[index].downcase.tr(' ', '_').to_sym # Eg.: :equal
     )
   end
 
