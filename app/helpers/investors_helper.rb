@@ -2,9 +2,13 @@
 
 module InvestorsHelper
   def possible_new_investors
-    # TODO: filter here, all that already are investors
-    people = Person.all.collect { |p| ["#{p.name}- Person", "Person-#{p.id}"] }
-    companies = Company.all.collect { |p| ["#{p.name}- Company", "Company-#{p.id}"] }
+    people = Person.all.collect do |p|
+      ["#{p.name}- Person", "Person-#{p.id}"]
+    end
+
+    companies = Company.all.collect do |p|
+      ["#{p.name}- Company", "Company-#{p.id}"]
+    end
 
     Array(people + companies)
   end
