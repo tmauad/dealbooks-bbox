@@ -69,13 +69,13 @@ class CompaniesController < ApplicationController
         return allowed_company if locations_attributes.to_h.values.all?(&:empty?)
 
         allowed_company.merge(
-        locations_attributes: [
-          {
-            city: locations_attributes[:city].presence,
-            region: locations_attributes[:region].presence,
-            country: locations_attributes[:country].presence
-          }
-        ]
+          locations_attributes: [
+            {
+              city: locations_attributes[:city].presence,
+              region: locations_attributes[:region].presence,
+              country: locations_attributes[:country].presence
+            }
+          ]
         )
       end
   end
