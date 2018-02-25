@@ -8,11 +8,6 @@ class SearchController < ApplicationController
 
     @results = Array(people.to_a + companies.to_a)
     @results_paginated = Kaminari.paginate_array(@results).page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.xls
-    end
   end
 
   private
