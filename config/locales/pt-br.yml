@@ -10,3 +10,8 @@ pt-br:
     about_us: 'Sobre nós'
     join_us: 'Cadastre-se'
     logout: 'Sair'
+    sign_in: 'Entrar'
+    sign_in_with_linkedin: 'Login com Linkedin'
+    or_sign_in_with_email: 'ou login com Email'
+    need_account_html: 'Precisa de uma conta? <a href="/signup">Cadastre-se</a>'
+    forgot_password: 'Esqueceu a senha?'
