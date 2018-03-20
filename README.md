@@ -74,6 +74,17 @@ Active contributors may earn commit access to the Github repo.
 
 (Designers: I have zero experience in design and would greatly appreciate some professional help. If you want to create a new design for **Dealbook**, contact [me](mailto:luciano@tavares.us). It will be a great way to showcase your skills to all founders and investors in the community. Plus, I will personally hand you 1000 karma points.)
 
+#### Prepare development environment
+
+Dependencies: ruby-2.5.0, postgres.
+
+To run the tests execute the following:
+
+```
+$ bin/setup
+$ bin/rspec spec
+```
+
 ### Make suggestions
 
 Suggestions, feature requests and bug reports are welcome! Please use the Github issues interface: [https://github.com/lucianot/dealbook/issues](https://github.com/lucianot/dealbook/issues)
