@@ -76,11 +76,7 @@ describe PeopleController do
 
     let(:params) do
       attributes_for(:person).merge(
-        locations_attributes: {
-          city: 'City',
-          region: 'Region',
-          country: 'Country'
-        }
+        locations_attributes: { city: 'City', country: 'Country' }
       ).merge(
         person_companies_attributes: {
           company_id: company.id

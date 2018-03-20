@@ -50,7 +50,7 @@
                     </li>
                     <li>
                         <strong>Locations</strong>
-                        <span><%= @company.locations.pluck(:city, :region, :country).join(', ') %></span>
+                        <span><%= @company.locations.pluck(:city, :country).join(', ') %></span>
                     </li>
                     <li>
                         <strong>Markets</strong>

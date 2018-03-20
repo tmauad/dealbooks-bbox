@@ -51,7 +51,7 @@
 				<tr>
                                     <td><img src="/img/photo-people.png" alt=""> <%= person.name %></td>
                                     <td><%= person.occupation %></td>
-                                    <td><%= person.locations.pluck(:city, :region, :country).join(', ') %></td>
+                                    <td><%= person.locations.pluck(:city, :country).join(', ') %></td>
                                     <td><img src="/img/logo-company-lg.png" alt=""><strong> <%= latest_company(person) %></strong></td>
                                     <td><a href="/people/<%= person.permalink %>"><img src="/img/seta-dir.svg" alt=""></a></td>
 				</tr>

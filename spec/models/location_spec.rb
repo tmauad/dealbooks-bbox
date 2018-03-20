@@ -5,7 +5,6 @@ describe Location do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:country) }
-    it { is_expected.to validate_presence_of(:region) }
     it { is_expected.to validate_presence_of(:city) }
   end
 

@@ -16,7 +16,7 @@
 		<Row>
 		    <Cell><Data ss:Type="String"><%= result.name %></Data></Cell>
 		    <Cell><Data ss:Type="String"><%= result.try(:status) %></Data></Cell>
-		    <Cell><Data ss:Type="String"><%= result.locations.pluck(:city, :region, :country).join(', ') %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= result.locations.pluck(:city, :country).join(', ') %></Data></Cell>
 		    <Cell><Data ss:Type="String"><%= result.try(:investor).try(:category) %></Data></Cell>
 		</Row>
 	    <% end %>

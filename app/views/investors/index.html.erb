@@ -51,7 +51,7 @@
                                     <td><img src="/img/logo-investors.png" alt=""> <%= investor.investable.name %></td>
                                     <td><%= investor.deals.count %></td>
                                     <td>134</td>
-                                    <td><%= investor.investable.locations.pluck(:city, :region, :country).join(', ') %></td>
+                                    <td><%= investor.investable.locations.pluck(:city, :country).join(', ') %></td>
                                     <td><a href="/investors/<%= investor.permalink %>"><img src="/img/seta-dir.svg" alt=""></a></td>
 				</tr>
 			    <% end %>

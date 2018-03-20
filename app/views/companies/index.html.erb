@@ -50,7 +50,7 @@
 				<tr>
                                     <td><img src="/img/logo-company.png" alt=""> <%= company.name %></td>
                                     <td class="status-active"><span class="circulo"></span> <%= company.status %></td>
-                                    <td><%= company.locations.pluck(:city, :region, :country).join(', ') %></td>
+                                    <td><%= company.locations.pluck(:city, :country).join(', ') %></td>
                                     <td><%= company.deals.map(&:category).uniq.join(', ') %></td>
                                     <td><a href="/companies/<%= company.permalink %>"><img src="/img/seta-dir.svg" alt=""></a></td>
 				</tr>

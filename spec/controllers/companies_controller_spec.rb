@@ -50,9 +50,7 @@ describe CompaniesController do
   describe '#create' do
     let(:params) do
       attributes_for(:company).merge(
-        locations_attributes: {
-          city: 'City', region: 'Region', country: 'Country'
-        }
+        locations_attributes: { city: 'City', country: 'Country' }
       )
     end
 

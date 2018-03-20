@@ -51,7 +51,7 @@ class CompaniesController < ApplicationController
 
   def alloweds
     params.require(:company).permit(
-      *COMPANY_PARAMS, locations_attributes: %i[city region country]
+      *COMPANY_PARAMS, locations_attributes: %i[city country]
     )
   end
 
@@ -72,7 +72,6 @@ class CompaniesController < ApplicationController
           locations_attributes: [
             {
               city: locations_attributes[:city].presence,
-              region: locations_attributes[:region].presence,
               country: locations_attributes[:country].presence
             }
           ]

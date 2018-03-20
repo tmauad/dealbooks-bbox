@@ -17,7 +17,7 @@
 		    <Cell><Data ss:Type="String"><%= investor.investable.name %></Data></Cell>
 		    <Cell><Data ss:Type="String"><%= investor.deals.count %></Data></Cell>
 		    <Cell><Data ss:Type="String"></Data></Cell>
-		    <Cell><Data ss:Type="String"><%= investor.investable.locations.pluck(:city, :region, :country).join(', ') %></Data></Cell>
+		    <Cell><Data ss:Type="String"><%= investor.investable.locations.pluck(:city, :country).join(', ') %></Data></Cell>
 		</Row>
 	    <% end %>
 	</Table>

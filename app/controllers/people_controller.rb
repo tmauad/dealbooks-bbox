@@ -61,7 +61,7 @@ class PeopleController < ApplicationController
     params.require(:person).permit(
       *PERSON_PARAMS,
       person_companies_attributes: [:company_id],
-      locations_attributes: %i[city region country]
+      locations_attributes: %i[city country]
     )
   end
 
@@ -92,7 +92,6 @@ class PeopleController < ApplicationController
       locations_attributes: [
         {
           city: locations_attributes[:city].presence,
-          region: locations_attributes[:region].presence,
           country: locations_attributes[:country].presence
         }
       ]
