@@ -33,21 +33,21 @@
 		<% unless user_signed_in? %>
 		    <li><a class="btn-signup"><%= t('header.sign_in') %> <img src="/img/seta.svg" alt=""></a></li>
 		    <div class="popup-login">
-			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-			    <%= link_to(omniauth_authorize_path(resource_name, :linkedin), class: 'login-with-linkedin') do %>
-				<%= image_tag '/img/linkedin-resume.svg' %>
-				<%= t('header.sign_in_with_linkedin') %>
-			    <% end -%>
+			<%= button_to(omniauth_authorize_path(resource_name, :linkedin), class: 'login-with-linkedin') do %>
+			    <%= image_tag '/img/linkedin-resume.svg' %>
+			    <span><%= t('header.sign_in_with_linkedin') %></span>
+			<% end -%>
 
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 			    <span class="span-or"><%= t('header.or_sign_in_with_email') %></span>
 
 			    <div class="form-group">
-				<%= f.email_field :email, autofocus: true, placeholder: 'Email or Username', class: 'form-control' %>
+				<%= f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control' %>
 			    </div>
 
 			    <div class="form-group">
 				<div class="input-group">
-				    <%= f.text_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control' %>
+				    <%= f.password_field :password, autocomplete: 'off', placeholder: 'Password', class: 'form-control' %>
 
 				    <span class="input-group-btn">
 					<%= f.button 'Login', class: 'btn btn-default' do %>
@@ -70,22 +70,6 @@
 	    <% else %>
 		<a href="/signup" type="button" class="btn-join"><%= t('header.join_us') %></a>
 	    <% end %>
-
-	    <button type="button" class="btn-idioma">
-                <img src="/img/language.svg" alt="">
-                <img src="/img/arrow-down.svg" class="arrow-down" alt="">
-	    </button>
-	    <div class="change-language">
-                <a href="/?language=pt-br">
-		    <img src="/img/idioma-ptbr.svg" class="flag" alt="">
-                </a>
-                <a href="/?language=en">
-		    <img src="/img/idioma-eua.svg" alt="" class="flag">
-                </a>
-                <a href="/?language=es">
-		    <img src="/img/idioma-esp.svg" alt="" class="flag">
-                </a>
-	    </div>
         </nav>
     </div>
 </div>

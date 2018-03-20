@@ -31,10 +31,12 @@
                 <h1>Sign In</h1>
             </div>
 
+	    <%= button_to(omniauth_authorize_path(resource_name, :linkedin), class: 'btn-linkedin') do %>
+		<%= image_tag '/img/linkedin-white.png' %> Linkedin
+	    <% end -%>
+
 	    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-		<%= link_to(omniauth_authorize_path(resource_name, :linkedin), class: 'button btn-linkedin') do %>
-		    <%= image_tag '/img/linkedin-white.png' %> Linkedin
-		<% end -%>
+
                 <span><a href="/">or Sign in with Email</a></span>
 
 		<%= devise_error_messages! %>
@@ -44,7 +46,7 @@
                 </div>
 
                 <div class="form-group">
-		    <%= f.text_field :password, autocomplete: "off", placeholder: 'Password' %>
+		    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
                 </div>
 
 		<div class="form-group">
