@@ -260,6 +260,13 @@ header .header-desktop .container-menu nav ul .popup-login form .form-group inpu
   font-size: 13px;
   border: 1px solid #cccccc;
 }
+header .header-desktop .container-menu nav ul .popup-login form .form-group input[type="password"] {
+  height: 37px;
+  box-shadow: none;
+  color: #8f98ae;
+  font-size: 13px;
+  border: 1px solid #cccccc;
+}
 header .header-desktop .container-menu nav ul .popup-login form .form-group .input-group input[type="text"] {
   height: 37px;
   box-shadow: none;
@@ -460,6 +467,13 @@ header .header-mobile {
     color: #8f98ae;
   }
   header .header-mobile .btns-menu .popup-login form .form-group input[type="email"] {
+    height: 37px;
+    box-shadow: none;
+    color: #8f98ae;
+    font-size: 13px;
+    border: 1px solid #cccccc;
+  }
+  header .header-mobile .btns-menu .popup-login form .form-group input[type="password"] {
     height: 37px;
     box-shadow: none;
     color: #8f98ae;
@@ -976,7 +990,7 @@ header .header-mobile {
 }
 .s-reasons .text-reasons ul li:before {
   content: "";
-  background: url("../img/linha.svg") no-repeat;
+  background: url("/img/linha.svg") no-repeat;
   position: absolute;
   width: 2px;
   height: 25px;
@@ -1298,7 +1312,7 @@ footer .container-primary p {
 }
 footer .container-primary nav ul {
   padding-left: 0px;
-  list-style-image: url('../img/circle-list.svg');
+  list-style-image: url('/img/circle-list.svg');
   margin-bottom: 0px;
   float: left;
   margin-left: 110px;
@@ -1965,7 +1979,7 @@ footer .copyright p a {
   width: 110px;
   line-height: 39px;
   margin-left: 40px;
-  background: url(../img/triangulo.svg) no-repeat right 15px center;
+  background: url(/img/triangulo.svg) no-repeat right 15px center;
   text-align: left;
 }
 @media (max-width: 769px) {
@@ -2961,7 +2975,7 @@ footer .copyright p a {
 }
 .s-signup .s-right .container-signup:before {
   content: "";
-  background: url(../img/linha-tracejada.png) no-repeat;
+  background: url(/img/linha-tracejada.png) no-repeat;
   width: 2px;
   height: 413px;
   position: absolute;
@@ -3013,7 +3027,6 @@ footer .copyright p a {
   border: 2px solid #e2eafc;
 }
 .s-signup .s-right .container-signup form {
-  float: left;
   width: 355px;
   padding-left: 60px;
 }
@@ -3049,6 +3062,19 @@ footer .copyright p a {
   color: #596276;
 }
 .s-signup .s-right .container-signup form .form-group input[type="text"]::placeholder {
+  font-size: 13px;
+  color: #596276;
+}
+.s-signup .s-right .container-signup form .form-group input[type="password"] {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  height: 48px;
+  padding-left: 25px;
+  font-size: 13px;
+  color: #596276;
+}
+.s-signup .s-right .container-signup form .form-group input[type="password"]::placeholder {
   font-size: 13px;
   color: #596276;
 }
@@ -3396,6 +3422,11 @@ footer .copyright p a {
   border-radius: 0px 3px 3px 0px;
   border-left: none;
 }
+.form-create form .form-group .linkedin input[type="password"] {
+  box-shadow: none;
+  border-radius: 0px 3px 3px 0px;
+  border-left: none;
+}
 .form-create form .form-group .date-close {
   width: 45%;
   margin-right: 2%;
@@ -3411,12 +3442,23 @@ footer .copyright p a {
   border-radius: 0px 3px 3px 0px;
   border-left: none;
 }
+.form-create form .form-group .date-close input[type="password"] {
+  box-shadow: none;
+  border-radius: 0px 3px 3px 0px;
+  border-left: none;
+}
 .form-create form .form-group .social .input-group-addon {
   padding-left: 16px;
   padding-right: 0;
   background: transparent;
 }
 .form-create form .form-group .social input[type="text"] {
+  height: 35px;
+  box-shadow: none;
+  border-radius: 0px 3px 3px 0px;
+  border-left: none;
+}
+.form-create form .form-group .social input[type="password"] {
   height: 35px;
   box-shadow: none;
   border-radius: 0px 3px 3px 0px;
@@ -3443,6 +3485,10 @@ footer .copyright p a {
   color: #32d6cc;
 }
 .form-create form .form-group input[type="text"],
+.form-create form .form-group input[type="number"],
+.form-create form .form-group input[type="date"],
+.form-create form .form-group input[type="url"],
+.form-create form .form-group input[type="password"],
 .form-create form .form-group input[type="email"] {
   width: 100%;
   height: 48px;
@@ -3453,6 +3499,10 @@ footer .copyright p a {
   color: #596276;
 }
 .form-create form .form-group input[type="text"]::placeholder,
+.form-create form .form-group input[type="number"]::placeholder,
+.form-create form .form-group input[type="date"]::placeholder,
+.form-create form .form-group input[type="url"]::placeholder,
+.form-create form .form-group input[type="password"]::placeholder,
 .form-create form .form-group input[type="email"]::placeholder {
   font-size: 13px;
   color: #596276;
@@ -3485,7 +3535,7 @@ footer .copyright p a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../img/seta-baixo-select.png") no-repeat right;
+  background: url("/img/seta-baixo-select.png") no-repeat right;
   background-position-x: 95%;
   background-position-y: 20px;
 }
@@ -3501,7 +3551,7 @@ footer .copyright p a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../img/seta-baixo-select.png") no-repeat right;
+  background: url("/img/seta-baixo-select.png") no-repeat right;
   background-position-x: 95%;
   background-position-y: 20px;
 }
@@ -3517,7 +3567,7 @@ footer .copyright p a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../img/seta-baixo-select.png") no-repeat right;
+  background: url("/img/seta-baixo-select.png") no-repeat right;
   background-position-x: 95%;
   background-position-y: 20px;
 }
@@ -3535,7 +3585,7 @@ footer .copyright p a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../img/seta-baixo-select.png") no-repeat right;
+  background: url("/img/seta-baixo-select.png") no-repeat right;
   background-position-x: 95%;
   background-position-y: 20px;
 }
@@ -3551,7 +3601,7 @@ footer .copyright p a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../img/seta-baixo-select.png") no-repeat right;
+  background: url("/img/seta-baixo-select.png") no-repeat right;
   background-position-x: 95%;
   background-position-y: 20px;
 }
@@ -3861,7 +3911,7 @@ footer .copyright p a {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../img/seta-baixo-select.png") no-repeat right;
+  background: url("/img/seta-baixo-select.png") no-repeat right;
   background-position-x: 95%;
   background-position-y: 20px;
 }
@@ -4842,7 +4892,7 @@ a.menu-button:hover .menu-icon::after {
 }
 .history-dealbook .text .item ul {
   padding-left: 0px;
-  list-style-image: url('../img/circle-list.svg');
+  list-style-image: url('/img/circle-list.svg');
   margin-bottom: 30px;
   padding-left: 10px;
   margin-top: 40px;
