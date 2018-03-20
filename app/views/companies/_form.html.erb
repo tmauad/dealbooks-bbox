@@ -8,40 +8,34 @@
     <%= f.text_field :name, placeholder: t('companies.form.name') %>
 </div>
 <div class="form-group">
-    <%= f.select(
-	:employees_count,
-	[
-	    ['until 10 employees', 10],
-	    ['until 50 employees', 50],
-	    ['until 100 employees', 100],
-	    ['until 500 employees', 500],
-	    ['until 1000 employees', 1_000]
-	],
-	{},
-	{ class: 'select-employ' }
-    ) %>
+    <%= f.text_field(:employees_count, placeholder: 'Employees count', class: 'input-city', pattern: '\d*', title: 'Only digits') %>
 
-    <%= f.text_field :born_date, placeholder: t('companies.form.date_founded'), class: 'input-date' %>
+    <%= f.text_field :born_date, placeholder: t('companies.form.date_founded'), class: 'input-date datepicker' %>
 </div>
 <div class="form-group">
     <%= f.fields_for :locations_attributes do |location_form| %>
-	<%= location_form.text_field :city, placeholder: t('companies.form.city'), class: 'input-city' %>
-	<%= location_form.text_field :region, placeholder: t('companies.form.region'), class: 'input-state' %>
+	<%= location_form.select :country, [], { prompt: t('companies.form.country') }, { class: 'select-category', style: 'width: 100%' } %>
+	<%= location_form.select :city, [], { prompt: t('companies.form.city') }, { class: 'select-category', style: 'width: 100%' } %>
     <% end %>
 </div>
 <div class="form-group">
-    <%= f.fields_for :locations_attributes do |location_form| %>
-	<%= location_form.text_field :country, placeholder: t('companies.form.country'), class: 'input-phone' %>
-    <% end %>
-
-    <%= f.text_field :phone_number, placeholder: t('companies.form.phone_number'), class: 'input-tag' %>
-</div>
-<div class="form-group">
-    <%= f.text_field :website_url, placeholder: t('companies.form.website_url'), class: 'input-site' %>
+    <%= f.text_field :phone_number, placeholder: t('companies.form.phone_number'), class: 'input-city' %>
+    <%= f.text_field :website_url, placeholder: t('companies.form.website_url'), class: 'input-date' %>
 </div>
 <div class="form-group">
     <%= f.text_field :email, placeholder: t('companies.form.email'), class: 'input-email' %>
-    <input type="text" placeholder="Industry [FALTA AQUI]" class="input-industry">
+    <%= f.fields_for :company_markets_attributes do |market_form| %>
+	<%= market_form.select(
+	    :market_id,
+	    @markets.collect { |c| [c.name, c.id] },
+	    { prompt: t('companies.form.email') },
+	    {
+		class: 'selectpicker input-date',
+		multiple: true,
+		'data-live-search' => true
+	    }
+	) %>
+    <% end %>
 </div>
 <div class="form-group">
     <%= f.text_area :description, placeholder: t('companies.form.description'), rows: 6 %>
@@ -49,21 +43,28 @@
 <div class="form-group">
     <div class="input-group social">
         <span class="input-group-addon"><img src="/img/facebook-gray.svg" alt=""></span>
-	<%= f.text_field :facebook_url, placeholder: t('companies.form.add_facebook'), class: 'form-control', 'aria-label' => 'Username' %>
+	<%= f.text_field :facebook_url, placeholder: t('companies.form.add_facebook'), class: 'form-control', 'aria-label' => 'Username', pattern: 'https?://.+', title: 'Only valid URLs' %>
     </div>
 </div>
 <div class="form-group">
     <div class="input-group social">
         <span class="input-group-addon"><img src="/img/twitter-gray.svg" alt=""></span>
-	<%= f.text_field :twitter_url, placeholder: t('companies.form.add_twitter'), class: 'form-control', 'aria-label' => 'Username' %>
+	<%= f.text_field :twitter_url, placeholder: t('companies.form.add_twitter'), class: 'form-control', 'aria-label' => 'Username', pattern: 'https?://.+', title: 'Only valid URLs' %>
     </div>
 </div>
 <div class="form-group">
     <div class="input-group social">
         <span class="input-group-addon"><img src="/img/linkedin-gray.png" alt=""></span>
-	<%= f.text_field :linkedin_url, placeholder: t('companies.form.add_twitter'), class: 'form-control', 'aria-label' => 'Username' %>
+	<%= f.text_field :linkedin_url, placeholder: t('companies.form.add_linkedin'), class: 'form-control', 'aria-label' => 'Username', pattern: 'https?://.+', title: 'Only valid URLs' %>
     </div>
 </div>
 <div class="form-group">
     <%= f.submit t('companies.form.send') %>
 </div>
+
+<script>
+ populateCountries(
+     "company_locations_attributes_country",
+     "company_locations_attributes_city"
+ );
+</script>

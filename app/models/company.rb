@@ -17,7 +17,6 @@ class Company < ApplicationRecord
   validates(
     :employees_count, numericality: { only_integer: true }, allow_nil: true
   )
-  validates :born_date, date: true, allow_nil: true
 
   validates :email, email: true, allow_nil: true
   validates :website_url, url: true, allow_nil: true
@@ -40,6 +39,7 @@ class Company < ApplicationRecord
 
   # Nested
   accepts_nested_attributes_for :locations
+  accepts_nested_attributes_for :company_markets
 
   before_validation do
     self.permalink = name.parameterize if name.present?

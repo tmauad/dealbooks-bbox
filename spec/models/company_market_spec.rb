@@ -4,8 +4,8 @@ describe CompanyMarket do
   subject(:company_market) { build(:company_market) }
 
   describe 'validations' do
-    it { is_expected.to validate_presence_of(:company_id) }
-    it { is_expected.to validate_presence_of(:market_id) }
+    it { is_expected.to validate_presence_of(:company) }
+    it { is_expected.to validate_presence_of(:market) }
   end
 
   describe 'relations' do

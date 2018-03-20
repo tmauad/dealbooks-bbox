@@ -41,12 +41,6 @@ describe Company do
         is_expected.to be_valid
       end
 
-      it 'is not a valid born_date, then returns invalid' do
-        company.born_date = 'i-am-not-a-date'
-
-        is_expected.to_not be_valid
-      end
-
       it 'could be nil' do
         company.born_date = nil
 

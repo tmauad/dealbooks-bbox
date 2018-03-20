@@ -1775,9 +1775,6 @@ footer .copyright p a {
   text-align: left;
   padding-left: 18px;
 }
-.filter-block .container-filter .filter-result .filter-complete .item-filter ul li.second-nivel-filter .bootstrap-select {
-  width: 240px;
-}
 .filter-block .container-filter .filter-result .filter-complete .item-filter ul li.second-nivel-filter .bootstrap-select .dropdown-toggle {
   background: #2e448b;
   border: none;
@@ -3629,21 +3626,6 @@ footer .copyright p a {
   margin-right: 2%;
   float: left;
   width: 61% !important;
-}
-.form-create form .form-group a {
-  float: right;
-  background: #4364ca;
-  font-size: 13px;
-  color: #fff;
-  width: 37%;
-  text-align: center;
-  border-radius: 4px;
-  line-height: 44px;
-  border: 2px solid #4364ca;
-}
-.form-create form .form-group a:hover {
-  background: transparent;
-  color: #4374ca;
 }
 .form-create form h1.title-social {
   font-size: 32px;
