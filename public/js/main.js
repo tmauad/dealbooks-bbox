@@ -271,3 +271,7 @@ $(".btn-idioma").click(function(event) {
 $(".all-questions .item").click(function(event) {
   $(this).toggleClass('opened-answers');
 });
+
+$(function() {
+  $(".datepicker").datepicker();
+});
