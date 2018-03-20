@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180222160416) do
     t.string "name", null: false
     t.string "permalink", null: false
     t.text "description", null: false
-    t.integer "employees_count", default: 0
+    t.integer "employees_count"
     t.date "born_date"
     t.string "phone_number"
     t.string "email"
@@ -97,13 +97,11 @@ ActiveRecord::Schema.define(version: 20180222160416) do
 
   create_table "locations", force: :cascade do |t|
     t.string "country", null: false
-    t.string "region", null: false
     t.string "city", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city"], name: "index_locations_on_city"
     t.index ["country"], name: "index_locations_on_country"
-    t.index ["region"], name: "index_locations_on_region"
   end
 
   create_table "markets", force: :cascade do |t|

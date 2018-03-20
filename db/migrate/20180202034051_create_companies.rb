@@ -7,7 +7,7 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.string :permalink, null: false, index: true
 
       t.text :description, null: false
-      t.integer :employees_count, default: 0
+      t.integer :employees_count
       t.date :born_date
       t.string :phone_number
       t.string :email

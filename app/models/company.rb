@@ -14,7 +14,9 @@ class Company < ApplicationRecord
   validates :permalink, slug: true
   validates :status, inclusion: { in: STATUSES }
 
-  validates :employees_count, numericality: { only_integer: true }
+  validates(
+    :employees_count, numericality: { only_integer: true }, allow_nil: true
+  )
   validates :born_date, date: true, allow_nil: true
 
   validates :email, email: true, allow_nil: true
