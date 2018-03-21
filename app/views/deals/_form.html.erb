@@ -15,11 +15,11 @@
 <div class="form-group">
     <div class="input-group date-close">
         <span class="input-group-addon"><img src="/img/calendar.svg" alt=""></span>
-	<%= f.text_field :close_date, placeholder: t('deals.form.close_date'), class: 'form-control', 'aria-label' => 'Username' %>
+	<%= f.text_field :close_date, placeholder: t('deals.form.close_date'), class: 'form-control datepicker', 'aria-label' => 'Username' %>
     </div>
     <%= f.select(
 	:category,
-	Deal::CATEGORIES.collect { |category| [category, category] },
+	Deal::CATEGORIES.collect { |category| [t("deals.form.categories.#{category}"), category] },
 	{ prompt: t('deals.form.select_category') },
 	{ class: 'select-category' }
     ) %>
@@ -37,7 +37,7 @@
 <div class="form-group">
     <%= f.select(
 	:round,
-	Deal::ROUNDS.collect { |round| [round, round] },
+	Deal::ROUNDS.collect { |round| [t("deals.form.rounds.#{round}"), round] },
 	{ prompt: t('deals.form.select_round') },
 	{ class: 'select-round' }
     ) %>
@@ -53,10 +53,10 @@
     <%= f.text_field :amount_cents, placeholder: t('deals.form.total_amount'), class: 'input-total-amount' %>
 </div>
 <div class="form-group">
-    <%= f.text_field :pre_valuation_cents, placeholder: t('deals.form.close_date'), class: 'input-money' %>
+    <%= f.text_field :pre_valuation_cents, placeholder: t('deals.form.pre_valuation'), class: 'input-money' %>
 </div>
 <div class="form-group">
-    <%= f.text_area :source_url, placeholder: t('deals.form.source_url'), rows: 6 %>
+    <%= f.text_field :source_url, placeholder: t('deals.form.source_url') %>
 </div>
 <div class="form-group">
     <%= f.submit t('deals.form.send') %>

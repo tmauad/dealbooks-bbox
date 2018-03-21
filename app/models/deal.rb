@@ -2,23 +2,29 @@
 
 class Deal < ApplicationRecord
   CATEGORIES = [
-    RAISED_FUNDS_FROM = 'raised-funds-from',
-    INCUBATED_BY = 'incubated-by',
-    MERGED_WITH = 'merged-with',
-    WAS_ACQUIRED_BY = 'was-acquired-by',
+    RAISED_FUNDS_FROM = 'raised_funds_from',
+    INCUBATED_BY = 'incubated_by',
+    MERGED_WITH = 'merged_with',
+    WAS_ACQUIRED_BY = 'was_acquired_by',
     SHUTDOWN = 'shutdown'
   ].freeze
 
   ROUNDS = [
-    ACCELERATION = 'acceleration',
     SEED = 'seed',
-    SERIES_SEED = 'series-seed',
-    SERIES_A = 'series-a',
-    SERIES_B = 'series-b',
-    SERIES_C = 'series-c',
-    SERIES_D = 'series-d',
-    SERIES_E = 'series-e',
-    IPO = 'ipo'
+    ANGEL = 'angel',
+    VENTURE = 'venture',
+    EQUITY_CROWDFUNDING = 'equity_crowdfunding',
+    PRODUCT_CROWDFUNDING = 'product_crowdfunding',
+    PRIVATE_EQUITY = 'private_equity',
+    CONVERTIBLE_NOTE = 'convertible_note',
+    DEBT_FINANCING = 'debt_financing',
+    SECONDARY_MARKET = 'secondary_market',
+    GRANT = 'grant',
+    POST_IPO_EQUITY = 'post_ipo_equity',
+    POST_IPO_DEBT = 'post_ipo_debt',
+    NON_EQUITY_ASSISTANCE = 'non_equity_assistance',
+    UNDISCLOSED = 'undisclosed',
+    UNKNOWN = 'unknown'
   ].freeze
 
   CURRENCIES = [USD = 'USD', BRL = 'BRL'].freeze
