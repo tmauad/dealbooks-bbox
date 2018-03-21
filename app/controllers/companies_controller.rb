@@ -26,6 +26,7 @@ class CompaniesController < ApplicationController
 
     if @company.save
       create_company_markets
+      create_investor(@company)
 
       redirect_to(companies_path, notice: 'Successfully saved')
     else
@@ -103,5 +104,16 @@ class CompaniesController < ApplicationController
     COMPANY_PARAMS.inject({}) do |acc, param|
       acc.merge(param => alloweds[param].presence)
     end
+  end
+
+  def investor?
+    investor = params.require(:company).permit(:investor)[:investor]
+    investor.presence == 'true'
+  end
+
+  def create_investor(company)
+    Investor.create!(
+      investable: company, category: Investor::ANGEL, stage: Investor::SEED
+    )
   end
 end

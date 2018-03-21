@@ -13,6 +13,20 @@
     <%= f.text_field :born_date, placeholder: t('companies.form.date_founded'), class: 'input-date datepicker' %>
 </div>
 <div class="form-group">
+    <div class="form-status form-gender">
+        <span class="label-status"><%= 'Investor' %></span>
+
+        <p class="investor-radio-inline">
+	    <%= f.radio_button :investor, true, id: 'investor-radio-active' %>
+            <label for="investor-radio-active">Yes</label>
+        </p>
+        <p class="investor-radio-inline">
+	    <%= f.radio_button :investor, false, id: 'investor-radio-inactive' %>
+            <label for="investor-radio-inactive">No</label>
+        </p>
+    </div>
+</div>
+<div class="form-group">
     <%= f.fields_for :locations_attributes do |location_form| %>
 	<%= location_form.select :country, [], { prompt: t('companies.form.country') }, { class: 'select-category', style: 'width: 100%' } %>
 	<%= location_form.select :city, [], { prompt: t('companies.form.city') }, { class: 'select-category', style: 'width: 100%' } %>
