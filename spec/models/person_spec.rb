@@ -25,28 +25,6 @@ describe Person do
       end
     end
 
-    describe 'born_date' do
-      it 'is a valid born_date, then returns valid' do
-        person.born_date = 18.years.ago.to_date
-
-        is_expected.to be_valid
-      end
-
-      context 'when is not a valid date' do
-        it 'is not a valid born_date, then returns invalid' do
-          person.born_date = 'i-am-not-a-date'
-
-          is_expected.to_not be_valid
-        end
-
-        it 'is not a valid born_date because is in the future' do
-          person.born_date = 10.years.from_now.to_date
-
-          is_expected.to_not be_valid
-        end
-      end
-    end
-
     it do
       is_expected.to(
         validate_inclusion_of(:gender).in_array(described_class::GENDERS)

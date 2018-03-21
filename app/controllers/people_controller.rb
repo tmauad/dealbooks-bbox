@@ -25,6 +25,8 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params)
 
     if @person.save
+      create_investor(@person) if investor?
+
       redirect_to people_path, notice: 'Successfully saved'
     else
       render :new
@@ -63,6 +65,11 @@ class PeopleController < ApplicationController
       person_companies_attributes: [:company_id],
       locations_attributes: %i[city country]
     )
+  end
+
+  def investor?
+    investor = params.require(:person).permit(:investor)[:investor]
+    investor.presence == 'true'
   end
 
   def allowed_person
@@ -111,5 +118,11 @@ class PeopleController < ApplicationController
         }
       ]
     }
+  end
+
+  def create_investor(person)
+    Investor.create!(
+      investable: person, category: Investor::ANGEL, stage: Investor::SEED
+    )
   end
 end

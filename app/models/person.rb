@@ -7,7 +7,6 @@ class Person < ApplicationRecord
   validates :first_name, :last_name, :permalink, :description, presence: true
   validates :permalink, slug: true, allow_nil: true
   validates :permalink, uniqueness: true
-  validates :born_date, date: { before: proc { Time.zone.today } }
   validates :gender, inclusion: { in: GENDERS }
   validates :email, email: true, allow_nil: true
   validates :email, uniqueness: true

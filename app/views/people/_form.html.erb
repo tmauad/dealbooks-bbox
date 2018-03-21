@@ -8,6 +8,22 @@
     <%= f.text_field :first_name, placeholder: t('people.form.first_name') %>
     <%= f.text_field :last_name, placeholder: t('people.form.last_name') %>
 </div>
+
+<div class="form-group">
+    <div class="form-status form-gender">
+        <span class="label-status"><%= 'Investor' %></span>
+
+        <p class="investor-radio-inline">
+	    <%= f.radio_button :investor, true, id: 'investor-radio-active' %>
+            <label for="investor-radio-active">Yes</label>
+        </p>
+        <p class="investor-radio-inline">
+	    <%= f.radio_button :investor, false, id: 'investor-radio-inactive' %>
+            <label for="investor-radio-inactive">No</label>
+        </p>
+    </div>
+</div>
+
 <div class="form-group">
     <%= f.text_field :occupation, placeholder: t('people.form.occupation') %>
 </div>
@@ -24,15 +40,14 @@
 
 <div class="form-group">
     <%= f.text_area :description, rows: 6, placeholder: t('people.form.description') %>
-
 </div>
 
 <%= f.fields_for :locations_attributes do |location_form| %>
     <div class="form-group">
-	<%= location_form.text_field :city, placeholder: t('people.form.city') %>
+        <%= location_form.select :country, [], { prompt: t('people.form.country') }, { class: 'select-category' } %>
     </div>
     <div class="form-group">
-        <%= location_form.text_field :country, placeholder: t('people.form.country') %>
+	<%= location_form.select :city, [], { prompt: t('people.form.city') }, { class: 'select-category' } %>
     </div>
 <% end %>
 <h1 class="title-social"><%= t('people.form.social_profile') %></h1>
@@ -82,3 +97,10 @@
 <div class="form-group">
     <%= f.submit t('people.form.send') %>
 </div>
+
+<script>
+ populateCountries(
+     "person_locations_attributes_country",
+     "person_locations_attributes_city"
+ );
+</script>
