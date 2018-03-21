@@ -56,7 +56,7 @@
     <%= f.text_field :pre_valuation_cents, placeholder: t('deals.form.pre_valuation'), class: 'input-money' %>
 </div>
 <div class="form-group">
-    <%= f.text_field :source_url, placeholder: t('deals.form.source_url') %>
+    <%= f.text_field :source_url, placeholder: t('deals.form.source_url'), pattern: 'https?://.+', title: 'Only valid URLs' %>
 </div>
 <div class="form-group">
     <%= f.submit t('deals.form.send') %>
