@@ -2,11 +2,11 @@
 
 class SearchController < ApplicationController
   def index
-    args = ['name ILIKE ?', "%#{search_params[:query]}%"]
-    people = Person.where(*args)
-    companies = Company.where(*args)
+    people1 = Person.where('first_name ILIKE ?', "%#{search_params[:query]}%")
+    people2 = Person.where('last_name ILIKE ?', "%#{search_params[:query]}%")
+    companies = Company.where('name ILIKE ?', "%#{search_params[:query]}%")
 
-    @results = Array(people.to_a + companies.to_a)
+    @results = Array(people1.to_a + people2.to_a + companies.to_a)
     @results_paginated = Kaminari.paginate_array(@results).page(params[:page])
   end
 

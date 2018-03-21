@@ -6,7 +6,7 @@ describe SearchController do
     subject(:index) { get :index, params: query }
 
     it 'returns the query result' do
-      person = create(:person, name: 'Abc')
+      person = create(:person, first_name: 'Abc')
       company = create(:company, name: 'aBcD')
 
       index

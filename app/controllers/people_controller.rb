@@ -52,8 +52,8 @@ class PeopleController < ApplicationController
   private
 
   PERSON_PARAMS = %i[
-    name description occupation born_date gender phone_number email
-    website_url facebook_url twitter_url google_plus_url linkedin_url
+    first_name last_name description occupation born_date gender phone_number
+    email website_url facebook_url twitter_url google_plus_url linkedin_url
   ].freeze
   private_constant :PERSON_PARAMS
 

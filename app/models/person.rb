@@ -4,7 +4,7 @@ class Person < ApplicationRecord
   GENDERS = [MALE = 'male', FEMALE = 'female'].freeze
 
   # Validations
-  validates :name, :permalink, :description, presence: true
+  validates :first_name, :last_name, :permalink, :description, presence: true
   validates :permalink, slug: true, allow_nil: true
   validates :permalink, uniqueness: true
   validates :born_date, date: { before: proc { Time.zone.today } }
@@ -33,6 +33,10 @@ class Person < ApplicationRecord
 
   # Hooks
   before_validation do
-    self.permalink = name.parameterize if name.present?
+    self.permalink = name.parameterize if name.presence
+  end
+
+  def name
+    [first_name, last_name].join(' ')
   end
 end

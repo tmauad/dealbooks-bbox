@@ -2,8 +2,9 @@
 
 FactoryBot.define do
   factory :person do
-    name { Faker::Name.name }
-    permalink { name.parameterize }
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    permalink { [first_name + last_name].join(' ').parameterize }
     description { Faker::Lorem.paragraph }
 
     # Optionals

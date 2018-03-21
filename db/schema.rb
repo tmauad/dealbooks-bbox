@@ -112,7 +112,8 @@ ActiveRecord::Schema.define(version: 20180222160416) do
   end
 
   create_table "people", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "permalink", null: false
     t.text "description", null: false
     t.date "born_date"
@@ -127,7 +128,8 @@ ActiveRecord::Schema.define(version: 20180222160416) do
     t.string "linkedin_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_people_on_name"
+    t.index ["first_name"], name: "index_people_on_first_name"
+    t.index ["last_name"], name: "index_people_on_last_name"
     t.index ["permalink"], name: "index_people_on_permalink"
   end
 
