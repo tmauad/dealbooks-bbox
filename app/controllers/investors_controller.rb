@@ -14,41 +14,11 @@ class InvestorsController < ApplicationController
     @investor = company_investor || person_investor
   end
 
-  def new
-    @investor = Investor.new
-  end
-
-  def create
-    @investor = Investor.new(investor_params)
-
-    if @investor.save
-      redirect_to investors_path, notice: 'Successfully saved'
-    else
-      render :new
-    end
-  end
-
   private
 
   def filter_params
     return {} unless params[:filter]
 
     params.require(:filter).permit(:fields, :operators, :values)
-  end
-
-  def alloweds
-    params.require(:investor).permit(:investable_id, :status, :category, :stage)
-  end
-
-  def investor_params
-    investable_type, investable_id = alloweds[:investable_id].split('-')
-
-    {
-      investable_id: investable_id,
-      investable_type: investable_type,
-      status: alloweds[:status].presence,
-      category: alloweds[:category].presence,
-      stage: alloweds[:stage].presence
-    }
   end
 end

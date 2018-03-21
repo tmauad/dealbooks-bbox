@@ -43,35 +43,4 @@ describe InvestorsController do
       end
     end
   end
-
-  describe '#new' do
-    subject(:new) { get :new }
-
-    it 'returns a new investor' do
-      sign_in create(:user)
-
-      new
-
-      expect(assigns(:investor)).to be_an(Investor)
-      expect(assigns(:investor)).to_not be_persisted
-    end
-  end
-
-  describe '#create' do
-    let(:investable) { create(:company) }
-
-    let(:params) do
-      attributes_for(:investor).merge(
-        investable_id: "#{investable.class}-#{investable.id}"
-      )
-    end
-
-    subject(:create_investor) { post :create, params: { investor: params } }
-
-    it 'creates an investor' do
-      sign_in create(:user)
-
-      expect { create_investor }.to change { Investor.all.count }.from(0).to(1)
-    end
-  end
 end
