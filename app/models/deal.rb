@@ -10,6 +10,14 @@ class Deal < ApplicationRecord
   ].freeze
 
   ROUNDS = [
+    ACCELERATION = 'acceleration',
+    SERIES_SEED = 'series_seed',
+    SERIES_A = 'series_a',
+    SERIES_B = 'series_b',
+    SERIES_C = 'series_c',
+    SERIES_D = 'series_d',
+    SERIES_E = 'series_e',
+    IPO = 'ipo',
     SEED = 'seed',
     ANGEL = 'angel',
     VENTURE = 'venture',
