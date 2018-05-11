@@ -9,7 +9,7 @@ class Company < ApplicationRecord
   ].freeze
 
   # Validations
-  validates :name, :permalink, :description, :status, presence: true
+  validates :name, :permalink, :status, presence: true
 
   validates :permalink, slug: true
   validates :status, inclusion: { in: STATUSES }

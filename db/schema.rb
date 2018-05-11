@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180222160416) do
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
     t.string "permalink", null: false
-    t.text "description", null: false
+    t.text "description"
     t.integer "employees_count"
     t.date "born_date"
     t.string "phone_number"
@@ -60,10 +60,10 @@ ActiveRecord::Schema.define(version: 20180222160416) do
     t.string "status", default: "unverified", null: false
     t.string "category", null: false
     t.string "round"
-    t.string "amount_currency"
-    t.integer "amount_cents"
+    t.string "amount_currency", default: "USD"
+    t.bigint "amount_cents"
     t.string "pre_valuation_currency"
-    t.integer "pre_valuation_cents"
+    t.bigint "pre_valuation_cents"
     t.string "source_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
