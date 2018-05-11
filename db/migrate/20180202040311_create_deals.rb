@@ -11,11 +11,11 @@ class CreateDeals < ActiveRecord::Migration[5.1]
       t.string :category, null: false, index: true
       t.string :round, index: true
 
-      t.string :amount_currency
-      t.integer :amount_cents
+      t.string :amount_currency, default: Deal::USD
+      t.bigint :amount_cents
 
       t.string :pre_valuation_currency
-      t.integer :pre_valuation_cents
+      t.bigint :pre_valuation_cents
 
       t.string :source_url
 
