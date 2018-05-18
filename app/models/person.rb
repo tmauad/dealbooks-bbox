@@ -4,12 +4,12 @@ class Person < ApplicationRecord
   GENDERS = [MALE = 'male', FEMALE = 'female'].freeze
 
   # Validations
-  validates :first_name, :last_name, :permalink, :description, presence: true
+  validates :first_name, :permalink, presence: true
   validates :permalink, slug: true, allow_nil: true
   validates :permalink, uniqueness: true
-  validates :gender, inclusion: { in: GENDERS }
+  validates :gender, inclusion: { in: GENDERS }, allow_nil: true
   validates :email, email: true, allow_nil: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, allow_nil: true
 
   validates :website_url, url: true, allow_nil: true
   validates :facebook_url, url: true, allow_nil: true
@@ -32,10 +32,12 @@ class Person < ApplicationRecord
 
   # Hooks
   before_validation do
-    self.permalink = name.parameterize if name.presence
+    unless permalink
+      self.permalink = name.parameterize if name.presence
+    end
   end
 
   def name
-    [first_name, last_name].join(' ')
+    [first_name, last_name].join(' ').strip
   end
 end

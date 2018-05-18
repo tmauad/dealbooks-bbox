@@ -5,8 +5,6 @@ describe Person do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:first_name) }
-    it { is_expected.to validate_presence_of(:last_name) }
-    it { is_expected.to validate_presence_of(:description) }
 
     describe 'permalink' do
       it 'is a valid slug, then returns valid' do

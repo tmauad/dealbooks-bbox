@@ -4,9 +4,9 @@ class CreatePerson < ActiveRecord::Migration[5.1]
   def change
     create_table :people do |t|
       t.string :first_name, null: false, index: true
-      t.string :last_name, null: false, index: true
+      t.string :last_name
       t.string :permalink, null: false, index: true
-      t.text :description, null: false
+      t.text :description
 
       t.date :born_date
       t.string :gender
