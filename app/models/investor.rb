@@ -29,8 +29,8 @@ class Investor < ApplicationRecord
   validates :investable_id, :investable_type, presence: true
 
   validates :status, inclusion: { in: STATUSES }
-  validates :category, inclusion: { in: CATEGORIES }
-  validates :stage, inclusion: { in: STAGES }
+  validates :category, inclusion: { in: CATEGORIES }, allow_nil: true
+  validates :stage, inclusion: { in: STAGES }, allow_nil: true
 
   # Relations
   belongs_to :investable, polymorphic: true
