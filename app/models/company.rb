@@ -42,6 +42,8 @@ class Company < ApplicationRecord
   accepts_nested_attributes_for :company_markets
 
   before_validation do
-    self.permalink = name.parameterize if name.present?
+    unless permalink
+      self.permalink = name.parameterize if name.present?
+    end
   end
 end
